@@ -1,9 +1,9 @@
-# Schema Type Generator
+# Oh-My-Posh TypeScript Type Generator
 
 ![Theme Validation](./theme-validation-badge.svg)
 
 [Oh-my-posh](https://ohmyposh.dev) ([JanDeDobbeleer
-oh-my-posh | github](https://github.com/jandedobbeleer/oh-my-posh)) is "A prompt theme engine for any shell."
+oh-my-posh | github](https://github.com/jandedobbeleer/oh-my-posh)) is "A prompt theme engine for any shell." This project generates typescript types from the `oh-my-posh` schema. These types can then be used in other typescript projects to validate and work with `oh-my-posh` configuration files.
 
 The typescript/javascript in this directory is used to generate typescript types from the `oh-my-posh` [(oh-my-posh.dev)](https://ohmyposh.dev/) schema. These types can then be used in other typescript projects to validate and work with `oh-my-posh` configuration files.
 
