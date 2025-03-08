@@ -1,0 +1,134 @@
+# Oh My Posh Theme Validation Report
+
+This report shows the validation status of all themes in the [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh) repository against the TypeScript types generated from the schema.
+
+- **Total themes tested:** 122
+- **Valid themes:** 47 (39%)
+- **Invalid themes:** 75 (61%)
+
+Last updated: 2025-03-08
+
+| Theme | Status |
+|-------|--------|
+| [1_shell.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/1_shell.omp.json) | ✅ Valid |
+| [agnoster.minimal.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/agnoster.minimal.omp.json) | ✅ Valid |
+| [agnoster.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/agnoster.omp.json) | ✅ Valid |
+| [agnosterplus.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/agnosterplus.omp.json) | ✅ Valid |
+| [aliens.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/aliens.omp.json) | ✅ Valid |
+| [catppuccin.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/catppuccin.omp.json) | ✅ Valid |
+| [catppuccin_frappe.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/catppuccin_frappe.omp.json) | ✅ Valid |
+| [catppuccin_latte.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/catppuccin_latte.omp.json) | ✅ Valid |
+| [catppuccin_macchiato.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/catppuccin_macchiato.omp.json) | ✅ Valid |
+| [catppuccin_mocha.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/catppuccin_mocha.omp.json) | ✅ Valid |
+| [free-ukraine.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/free-ukraine.omp.json) | ✅ Valid |
+| [froczh.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/froczh.omp.json) | ✅ Valid |
+| [gmay.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/gmay.omp.json) | ✅ Valid |
+| [grandpa-style.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/grandpa-style.omp.json) | ✅ Valid |
+| [gruvbox.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/gruvbox.omp.json) | ✅ Valid |
+| [half-life.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/half-life.omp.json) | ✅ Valid |
+| [honukai.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/honukai.omp.json) | ✅ Valid |
+| [hotstick.minimal.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/hotstick.minimal.omp.json) | ✅ Valid |
+| [hul10.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/hul10.omp.json) | ✅ Valid |
+| [hunk.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/hunk.omp.json) | ✅ Valid |
+| [jblab_2021.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/jblab_2021.omp.json) | ✅ Valid |
+| [jonnychipz.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/jonnychipz.omp.json) | ✅ Valid |
+| [json.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/json.omp.json) | ✅ Valid |
+| [jtracey93.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/jtracey93.omp.json) | ✅ Valid |
+| [jv_sitecorian.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/jv_sitecorian.omp.json) | ✅ Valid |
+| [negligible.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/negligible.omp.json) | ✅ Valid |
+| [neko.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/neko.omp.json) | ✅ Valid |
+| [night-owl.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/night-owl.omp.json) | ✅ Valid |
+| [nordtron.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/nordtron.omp.json) | ✅ Valid |
+| [nu4a.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/nu4a.omp.json) | ✅ Valid |
+| [pixelrobots.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/pixelrobots.omp.json) | ✅ Valid |
+| [plague.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/plague.omp.json) | ✅ Valid |
+| [poshmon.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/poshmon.omp.json) | ✅ Valid |
+| [powerlevel10k_classic.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/powerlevel10k_classic.omp.json) | ✅ Valid |
+| [powerlevel10k_lean.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/powerlevel10k_lean.omp.json) | ✅ Valid |
+| [quick-term.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/quick-term.omp.json) | ✅ Valid |
+| [remk.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/remk.omp.json) | ✅ Valid |
+| [robbyrussell.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/robbyrussell.omp.json) | ✅ Valid |
+| [rudolfs-dark.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/rudolfs-dark.omp.json) | ✅ Valid |
+| [rudolfs-light.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/rudolfs-light.omp.json) | ✅ Valid |
+| [unicorn.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/unicorn.omp.json) | ✅ Valid |
+| [velvet.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/velvet.omp.json) | ✅ Valid |
+| [wholespace.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/wholespace.omp.json) | ✅ Valid |
+| [wopian.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/wopian.omp.json) | ✅ Valid |
+| [xtoys.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/xtoys.omp.json) | ✅ Valid |
+| [ys.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/ys.omp.json) | ✅ Valid |
+| [zash.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/zash.omp.json) | ✅ Valid |
+| [amro.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/amro.omp.json) | ❌ Invalid |
+| [atomic.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/atomic.omp.json) | ❌ Invalid |
+| [atomicBit.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/atomicBit.omp.json) | ❌ Invalid |
+| [avit.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/avit.omp.json) | ❌ Invalid |
+| [blue-owl.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/blue-owl.omp.json) | ❌ Invalid |
+| [blueish.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/blueish.omp.json) | ❌ Invalid |
+| [bubbles.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/bubbles.omp.json) | ❌ Invalid |
+| [bubblesextra.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/bubblesextra.omp.json) | ❌ Invalid |
+| [bubblesline.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/bubblesline.omp.json) | ❌ Invalid |
+| [capr4n.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/capr4n.omp.json) | ❌ Invalid |
+| [cert.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/cert.omp.json) | ❌ Invalid |
+| [chips.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/chips.omp.json) | ❌ Invalid |
+| [cinnamon.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/cinnamon.omp.json) | ❌ Invalid |
+| [clean-detailed.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/clean-detailed.omp.json) | ❌ Invalid |
+| [cloud-context.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/cloud-context.omp.json) | ❌ Invalid |
+| [cloud-native-azure.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/cloud-native-azure.omp.json) | ❌ Invalid |
+| [cobalt2.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/cobalt2.omp.json) | ❌ Invalid |
+| [craver.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/craver.omp.json) | ❌ Invalid |
+| [darkblood.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/darkblood.omp.json) | ❌ Invalid |
+| [di4am0nd.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/di4am0nd.omp.json) | ❌ Invalid |
+| [dracula.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/dracula.omp.json) | ❌ Invalid |
+| [easy-term.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/easy-term.omp.json) | ❌ Invalid |
+| [emodipt-extend.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/emodipt-extend.omp.json) | ❌ Invalid |
+| [emodipt.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/emodipt.omp.json) | ❌ Invalid |
+| [fish.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/fish.omp.json) | ❌ Invalid |
+| [huvix.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/huvix.omp.json) | ❌ Invalid |
+| [if_tea.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/if_tea.omp.json) | ❌ Invalid |
+| [illusi0n.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/illusi0n.omp.json) | ❌ Invalid |
+| [iterm2.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/iterm2.omp.json) | ❌ Invalid |
+| [jandedobbeleer.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/jandedobbeleer.omp.json) | ❌ Invalid |
+| [kali.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/kali.omp.json) | ❌ Invalid |
+| [kushal.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/kushal.omp.json) | ❌ Invalid |
+| [lambda.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/lambda.omp.json) | ❌ Invalid |
+| [lambdageneration.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/lambdageneration.omp.json) | ❌ Invalid |
+| [larserikfinholt.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/larserikfinholt.omp.json) | ❌ Invalid |
+| [lightgreen.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/lightgreen.omp.json) | ❌ Invalid |
+| [M365Princess.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/M365Princess.omp.json) | ❌ Invalid |
+| [marcduiker.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/marcduiker.omp.json) | ❌ Invalid |
+| [markbull.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/markbull.omp.json) | ❌ Invalid |
+| [material.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/material.omp.json) | ❌ Invalid |
+| [microverse-power.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/microverse-power.omp.json) | ❌ Invalid |
+| [mojada.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/mojada.omp.json) | ❌ Invalid |
+| [montys.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/montys.omp.json) | ❌ Invalid |
+| [mt.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/mt.omp.json) | ❌ Invalid |
+| [multiverse-neon.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/multiverse-neon.omp.json) | ❌ Invalid |
+| [onehalf.minimal.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/onehalf.minimal.omp.json) | ❌ Invalid |
+| [paradox.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/paradox.omp.json) | ❌ Invalid |
+| [pararussel.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/pararussel.omp.json) | ❌ Invalid |
+| [patriksvensson.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/patriksvensson.omp.json) | ❌ Invalid |
+| [peru.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/peru.omp.json) | ❌ Invalid |
+| [powerlevel10k_modern.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/powerlevel10k_modern.omp.json) | ❌ Invalid |
+| [powerlevel10k_rainbow.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/powerlevel10k_rainbow.omp.json) | ❌ Invalid |
+| [powerline.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/powerline.omp.json) | ❌ Invalid |
+| [probua.minimal.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/probua.minimal.omp.json) | ❌ Invalid |
+| [pure.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/pure.omp.json) | ❌ Invalid |
+| [sim-web.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/sim-web.omp.json) | ❌ Invalid |
+| [slim.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/slim.omp.json) | ❌ Invalid |
+| [slimfat.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/slimfat.omp.json) | ❌ Invalid |
+| [smoothie.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/smoothie.omp.json) | ❌ Invalid |
+| [sonicboom_dark.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/sonicboom_dark.omp.json) | ❌ Invalid |
+| [sonicboom_light.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/sonicboom_light.omp.json) | ❌ Invalid |
+| [sorin.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/sorin.omp.json) | ❌ Invalid |
+| [space.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/space.omp.json) | ❌ Invalid |
+| [spaceship.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/spaceship.omp.json) | ❌ Invalid |
+| [star.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/star.omp.json) | ❌ Invalid |
+| [stelbent-compact.minimal.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/stelbent-compact.minimal.omp.json) | ❌ Invalid |
+| [stelbent.minimal.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/stelbent.minimal.omp.json) | ❌ Invalid |
+| [takuya.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/takuya.omp.json) | ❌ Invalid |
+| [the-unnamed.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/the-unnamed.omp.json) | ❌ Invalid |
+| [thecyberden.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/thecyberden.omp.json) | ❌ Invalid |
+| [tiwahu.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/tiwahu.omp.json) | ❌ Invalid |
+| [tokyo.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/tokyo.omp.json) | ❌ Invalid |
+| [tokyonight_storm.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/tokyonight_storm.omp.json) | ❌ Invalid |
+| [tonybaloney.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/tonybaloney.omp.json) | ❌ Invalid |
+| [uew.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/uew.omp.json) | ❌ Invalid |

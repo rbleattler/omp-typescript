@@ -1,3 +1,17 @@
+# Types file
+omp.ts
+
+# Scratch
+.scratch
+
+# local env
+.vscode
+
+# Temporary
+tmp/
+temp/
+cache/oh-my-posh/
+
 # Dependency directories
 node_modules/
 jspm_packages/
