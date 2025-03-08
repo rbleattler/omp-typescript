@@ -11,7 +11,9 @@ const REPO_CACHE_DIR = path.join(process.cwd(), 'cache', 'oh-my-posh');
 const THEMES_DIR = path.join(REPO_CACHE_DIR, 'themes');
 const REPO_URL = 'https://github.com/JanDeDobbeleer/oh-my-posh.git';
 const VALIDATION_REPORT = path.join(process.cwd(), 'theme-validation.md');
+const DETAILED_REPORT = path.join(process.cwd(), 'theme-validation-details.md');
 const BADGE_PATH = path.join(process.cwd(), 'theme-validation-badge.svg');
+const TEMP_DIR = path.join(process.cwd(), 'temp');
 
 async function ensureRepoCloned(): Promise<void> {
   try {
@@ -77,8 +79,8 @@ async function generateMarkdownReport(results: {
   total: number,
   valid: number,
   invalid: number,
-  validThemes: Array<{name: string, path: string}>,
-  invalidThemes: Array<{name: string, path: string, errors: string[]}>
+  validThemes: Array<{ name: string, path: string }>,
+  invalidThemes: Array<{ name: string, path: string, errors: string[] }>
 }): Promise<void> {
   const { default: chalk } = await import('chalk');
   console.log(chalk.blue('Generating validation report...'));
@@ -125,6 +127,60 @@ Last updated: ${new Date().toISOString().split('T')[0]}
 }
 
 /**
+ * Generates a detailed markdown report with all validation errors
+ */
+async function generateDetailedReport(results: {
+  total: number,
+  valid: number,
+  invalid: number,
+  validThemes: Array<{ name: string, path: string }>,
+  invalidThemes: Array<{ name: string, path: string, errors: string[] }>
+}): Promise<void> {
+  const { default: chalk } = await import('chalk');
+  console.log(chalk.blue('Generating detailed validation report...'));
+
+  const repoOwner = 'JanDeDobbeleer';
+  const repoName = 'oh-my-posh';
+  const branch = 'main';
+
+  const reportHeader = `# Oh My Posh Theme Validation - Detailed Error Report
+
+This report contains detailed validation errors for each theme that failed validation.
+These errors can help identify issues in either the theme files or in the TypeScript type definitions.
+
+- **Total themes tested:** ${results.total}
+- **Valid themes:** ${results.valid} (${Math.round((results.valid / results.total) * 100)}%)
+- **Invalid themes:** ${results.invalid} (${Math.round((results.invalid / results.total) * 100)}%)
+
+Last updated: ${new Date().toISOString().split('T')[0]}
+
+## Summary
+
+${results.invalid === 0 ?
+      '✅ All themes passed validation!' :
+      `⚠️ ${results.invalid} themes failed validation with type errors.`}
+
+${results.invalid > 0 ? '## Error Details\n\nThe following sections contain detailed error information for each invalid theme.\n' : ''}
+`;
+
+  let detailContent = '';
+
+  // Add details for invalid themes
+  for (const theme of results.invalidThemes) {
+    const themeName = path.basename(theme.name, '.json');
+    const themeUrl = `https://github.com/${repoOwner}/${repoName}/blob/${branch}/themes/${theme.name}`;
+
+    detailContent += `### [${themeName}](${themeUrl})\n\n`;
+    detailContent += `**Validation Errors:**\n\n`;
+    detailContent += theme.errors?.map(error => `- ${error}`).join('\n') + '\n\n';
+  }
+
+  const reportContent = reportHeader + detailContent;
+  await fs.writeFile(DETAILED_REPORT, reportContent);
+  console.log(chalk.green(`Detailed validation report generated at ${DETAILED_REPORT}`));
+}
+
+/**
  * Generates a custom SVG badge showing theme validation status
  */
 async function generateValidationBadge(results: {
@@ -164,10 +220,10 @@ async function generateValidationBadge(results: {
     <path fill="url(#b)" d="M0 0h${width}v${height}H0z"/>
   </g>
   <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-    <text x="${labelWidth/2}" y="15" fill="#010101" fill-opacity=".3">Themes</text>
-    <text x="${labelWidth/2}" y="14">Themes</text>
-    <text x="${labelWidth + valueWidth/2}" y="15" fill="#010101" fill-opacity=".3">${text}</text>
-    <text x="${labelWidth + valueWidth/2}" y="14">${text}</text>
+    <text x="${labelWidth / 2}" y="15" fill="#010101" fill-opacity=".3">Themes</text>
+    <text x="${labelWidth / 2}" y="14">Themes</text>
+    <text x="${labelWidth + valueWidth / 2}" y="15" fill="#010101" fill-opacity=".3">${text}</text>
+    <text x="${labelWidth + valueWidth / 2}" y="14">${text}</text>
   </g>
 </svg>`;
 
@@ -226,7 +282,7 @@ async function main() {
     // Check if the OhMyPosh type is exported
     const typesContent = await fs.readFile(typesFile, 'utf-8');
     if (typesContent.includes('export interface OhMyPosh') ||
-        typesContent.includes('export type OhMyPosh')) {
+      typesContent.includes('export type OhMyPosh')) {
       console.log(chalk.green('OhMyPosh type is properly exported!'));
     } else {
       console.log(chalk.red('Warning: OhMyPosh type may not be properly exported!'));
@@ -266,8 +322,8 @@ async function main() {
       total: themeFiles.length,
       valid: 0,
       invalid: 0,
-      validThemes: [] as Array<{name: string, path: string}>,
-      invalidThemes: [] as Array<{name: string, path: string, errors: string[]}>
+      validThemes: [] as Array<{ name: string, path: string }>,
+      invalidThemes: [] as Array<{ name: string, path: string, errors: string[] }>
     };
 
     // Process each theme
@@ -315,6 +371,9 @@ async function main() {
     // Generate the markdown report
     await generateMarkdownReport(results);
 
+    // Generate detailed markdown report
+    await generateDetailedReport(results);
+
     // Generate custom SVG badge and update README
     await generateValidationBadge(results);
     await updateReadmeBadge();
@@ -337,6 +396,7 @@ async function main() {
     console.error(chalk.red('Error testing types:'), error);
     process.exit(1);
   }
+  await fs.rmdir(TEMP_DIR, { recursive: true }).catch(() => { });
 }
 
 main().catch(async (error) => {

@@ -65,8 +65,8 @@ console.log('Config is valid!');
       // Clean up the temporary file
       try {
         chalk.yellow('Cleaning up temporary files...');
-        await fs.rm(TEMP_FILE).catch(() => {});
-        await fs.rmdir(TEMP_DIR).catch(() => {});
+        // await fs.rm(TEMP_FILE).catch(() => {});
+        // await fs.rmdir(TEMP_DIR).catch(() => {});
         chalk.green('✅ Temporary files cleaned up!');
       } catch (error) {
         // Ignore errors during cleanup
