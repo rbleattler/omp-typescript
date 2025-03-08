@@ -57,7 +57,9 @@ async function validateTheme(themePath: string): Promise<{
     const themeName = path.basename(themePath);
     const content = await fs.readFile(themePath, 'utf8');
     const config = JSON.parse(content);
-    const result = await validate(config);
+
+    // Pass the theme name to the validator
+    const result = await validate(config, themeName);
 
     return {
       path: themePath,
@@ -396,7 +398,15 @@ async function main() {
     console.error(chalk.red('Error testing types:'), error);
     process.exit(1);
   }
-  await fs.rmdir(TEMP_DIR, { recursive: true }).catch(() => { });
+  await fs.rm(TEMP_DIR, { recursive: true }).catch(() => { });
+  // Clean up all temporary files at the end
+  try {
+    console.log(chalk.yellow('Cleaning up temporary files...'));
+    await fs.rm(TEMP_DIR, { recursive: true }).catch(() => {});
+    console.log(chalk.green('Temporary files cleaned up!'));
+  } catch (error) {
+    console.log(chalk.yellow('Failed to clean up some temporary files.'));
+  }
 }
 
 main().catch(async (error) => {
