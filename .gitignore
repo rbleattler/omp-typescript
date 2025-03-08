@@ -4,8 +4,9 @@ omp.ts
 # Scratch
 .scratch
 
-# local env
+# local env/dev
 .vscode
+theme-validation-details.md
 
 # Temporary
 tmp/
