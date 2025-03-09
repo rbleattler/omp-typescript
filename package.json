@@ -1,6 +1,6 @@
 {
-  "name": "omp-ts-typegen",
-  "version": "0.1.0",
+  "name": "@rbleattler/omp-ts-typegen",
+  "version": "0.2025.1",
   "contributors": [
     {
       "name": "Rob Bleattler",
@@ -11,14 +11,23 @@
   "description": "TypeScript type definitions for Oh My Posh schema",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "*.md",
+    "theme-validation-badge.svg",
+    "src/**/*",
+    "tsconfig.json",
+    "scripts/*.ts",
+    "cache/schema.json"
+  ],
   "scripts": {
     "build": "tsc",
     "generate-types": "ts-node --project tsconfig.scripts.json scripts/generate-types.ts",
-    "test-types": "ts-node --project tsconfig.scripts.json scripts/test-types.ts"
+    "test-types": "ts-node --project tsconfig.scripts.json scripts/test-types.ts",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rbleattler/omp-ts-typegen.git"
+    "url": "git+https://github.com/rbleattler/omp-typescript.git"
   },
   "keywords": [
     "oh-my-posh",
@@ -35,5 +44,9 @@
     "chalk": "5.4.1",
     "ts-node": "10.9.2",
     "typescript": "5.8.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/rbleattler/omp-ts-typegen/issues"
+  },
+  "homepage": "https://github.com/rbleattler/omp-ts-typegen#readme"
 }

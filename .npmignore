@@ -1,0 +1,20 @@
+# Exclude everything by default
+*
+*/
+!*/
+
+# Then explicitly include what we want
+!*.md
+!theme-validation-badge.svg
+!src/**/*
+!tsconfig.json
+!scripts/*.ts
+!cache/schema.json
+
+# Include dist folder from build
+!dist/**/*
+
+# Always exclude these
+.git*
+.scratch/
+node_modules/

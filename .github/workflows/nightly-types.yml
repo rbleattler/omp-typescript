@@ -12,31 +12,100 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history to check last commit
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Check for schema updates
+        id: check-schema
+        run: |
+          # Create cache directory if it doesn't exist
+          mkdir -p cache
+
+          # Clone Oh My Posh repository (shallow clone)
+          git clone --depth 1 https://github.com/JanDeDobbeleer/oh-my-posh.git cache/temp-omp
+
+          # Get the last commit date for the schema file
+          cd cache/temp-omp
+          SCHEMA_LAST_MODIFIED=$(git log -1 --format="%ct" -- themes/schema.json)
+          cd ../..
+
+          echo "Schema file last modified timestamp: $SCHEMA_LAST_MODIFIED"
+
+          # Get our last type generation date (from last commit that updated types)
+          LAST_GENERATION_DATE=$(git log -1 --format="%ct" -- src/types/omp.ts || echo 0)
+          echo "Our last type generation timestamp: $LAST_GENERATION_DATE"
+
+          # Check if schema is newer or this is a manual run
+          if [ $SCHEMA_LAST_MODIFIED -gt $LAST_GENERATION_DATE ] || [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "Schema has been updated since our last generation or manual run triggered."
+            echo "SCHEMA_CHANGED=true" >> $GITHUB_ENV
+
+            # Copy the schema for the generator to use
+            cp cache/temp-omp/themes/schema.json cache/schema.json
+          else
+            echo "Schema hasn't changed since our last type generation."
+            echo "SCHEMA_CHANGED=false" >> $GITHUB_ENV
+          fi
+
+          # Clean up temporary clone
+          rm -rf cache/temp-omp
+
       - name: Generate types
+        if: env.SCHEMA_CHANGED == 'true'
         run: npm run generate-types
 
       - name: Test types
+        if: env.SCHEMA_CHANGED == 'true'
         run: npm run test-types
 
+      - name: Set version based on date
+        if: env.SCHEMA_CHANGED == 'true'
+        id: set-version
+        run: |
+          YEAR=$(date +%Y)
+
+          # Get the current day of the year (iterator)
+          DAY_OF_YEAR=$(date +%j)
+
+          # Remove leading zeros to make it a proper number
+          ITERATOR=$(echo $DAY_OF_YEAR | sed 's/^0*//')
+
+          VERSION="0.$YEAR.$ITERATOR"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "New version: $VERSION"
+
+          # Update version in package.json
+          npm version $VERSION --no-git-tag-version
+
+      - name: Build package
+        if: env.SCHEMA_CHANGED == 'true'
+        run: npm run build
+
       - name: Commit and push changes if any
-        if: success()
+        if: env.SCHEMA_CHANGED == 'true'
         run: |
           if [[ -n $(git status --porcelain) ]]; then
             git config --local user.email "github-actions[bot]@users.noreply.github.com"
             git config --local user.name "github-actions[bot]"
-            git add src/types CHANGELOG.md readme.md theme-validation.md theme-validation-badge.svg
-            git commit -m "chore: update types from latest schema [skip ci]"
+            git add src/types CHANGELOG.md readme.md theme-validation.md theme-validation-badge.svg package.json cache/schema.json
+            git commit -m "chore: update types from latest schema and bump version to ${{ env.VERSION }} [skip ci]"
             git push
           else
             echo "No changes to commit."
           fi
+
+      - name: Publish package to npm
+        if: env.SCHEMA_CHANGED == 'true'
+        run: npm publish --access public --tag latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
