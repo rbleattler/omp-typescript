@@ -1,5 +1,6 @@
 # Types file
-omp.ts
+# Removing this line so we can commit the generated types
+# omp.ts
 
 # Scratch
 .scratch
