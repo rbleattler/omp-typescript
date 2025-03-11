@@ -60,14 +60,6 @@ jobs:
           # Clean up temporary clone
           rm -rf cache/temp-omp
 
-      - name: Generate types
-        if: env.SCHEMA_CHANGED == 'true'
-        run: npm run generate-types
-
-      - name: Test types
-        if: env.SCHEMA_CHANGED == 'true'
-        run: npm run test-types
-
       - name: Set version based on date
         if: env.SCHEMA_CHANGED == 'true'
         id: set-version
@@ -90,6 +82,14 @@ jobs:
 
           # Update version in package.json
           npm version $VERSION --no-git-tag-version
+
+      - name: Generate types
+        if: env.SCHEMA_CHANGED == 'true'
+        run: npm run generate-types
+
+      - name: Test types
+        if: env.SCHEMA_CHANGED == 'true'
+        run: npm run test-types
 
       - name: Build package
         if: env.SCHEMA_CHANGED == 'true'
