@@ -17,7 +17,8 @@
     "src/**/*",
     "tsconfig.json",
     "scripts/*.ts",
-    "cache/schema.json"
+    "cache/schema.json",
+    "dist/**/*"
   ],
   "scripts": {
     "build": "tsc",
