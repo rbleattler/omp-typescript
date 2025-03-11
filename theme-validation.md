@@ -11,6 +11,7 @@ Last updated: 2025-03-11
 | Theme | Status |
 |-------|--------|
 | [1_shell.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/1_shell.omp.json) | ✅ Valid |
+| [M365Princess.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/M365Princess.omp.json) | ✅ Valid |
 | [agnoster.minimal.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/agnoster.minimal.omp.json) | ✅ Valid |
 | [agnoster.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/agnoster.omp.json) | ✅ Valid |
 | [agnosterplus.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/agnosterplus.omp.json) | ✅ Valid |
@@ -71,7 +72,6 @@ Last updated: 2025-03-11
 | [lambdageneration.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/lambdageneration.omp.json) | ✅ Valid |
 | [larserikfinholt.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/larserikfinholt.omp.json) | ✅ Valid |
 | [lightgreen.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/lightgreen.omp.json) | ✅ Valid |
-| [M365Princess.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/M365Princess.omp.json) | ✅ Valid |
 | [marcduiker.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/marcduiker.omp.json) | ✅ Valid |
 | [markbull.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/markbull.omp.json) | ✅ Valid |
 | [material.omp](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/material.omp.json) | ✅ Valid |

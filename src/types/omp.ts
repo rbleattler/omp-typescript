@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2025-03-11T16:08:32.467Z
+ * Generated on: 2025-03-11T16:17:02.630Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -11,6 +11,8 @@
 /* eslint-disable */
 /* tslint:disable */
 
+// import { parse as parseTOML, stringify as stringifyTOML } from 'smol-toml';
+// import { parse as parseYAML, stringify as stringifyYAML } from "yaml";
 // To parse this data:
 //
 //   import { Convert, Config } from "./file";
