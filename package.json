@@ -46,7 +46,7 @@
     "typescript": "5.8.2"
   },
   "bugs": {
-    "url": "https://github.com/rbleattler/omp-ts-typegen/issues"
+    "url": "https://github.com/rbleattler/omp-typescript/issues"
   },
-  "homepage": "https://github.com/rbleattler/omp-ts-typegen#readme"
+  "homepage": "https://github.com/rbleattler/omp-typescript#readme"
 }
