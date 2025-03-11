@@ -2,19 +2,20 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2025-03-11T00:03:42.512Z
+ * Generated on: 2025-03-11T16:08:32.467Z
  *
  * @see https://ohmyposh.dev/docs/
  */
+
 
 /* eslint-disable */
 /* tslint:disable */
 
 // To parse this data:
 //
-//   import { Convert, OhMyPosh } from "./file";
+//   import { Convert, Config } from "./file";
 //
-//   const ohMyPosh = Convert.toOhMyPosh(json);
+//   const config = Convert.toConfig(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
@@ -22,7 +23,7 @@
 /**
  * https://ohmyposh.dev/docs/configuration/general
  */
-export type OhMyPosh = {
+export type Config = {
     accent_color?: string;
     /**
      * https://ohmyposh.dev/docs/configuration/general#blocks
@@ -383,12 +384,12 @@ export type Source = "cdn" | "github";
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toOhMyPosh(json: string): OhMyPosh {
-        return cast(JSON.parse(json), r("OhMyPosh"));
+    public static toConfig(json: string): Config {
+        return cast(JSON.parse(json), r("Config"));
     }
 
-    public static ohMyPoshToJson(value: OhMyPosh): string {
-        return JSON.stringify(uncast(value, r("OhMyPosh")), null, 2);
+    public static configToJson(value: Config): string {
+        return JSON.stringify(uncast(value, r("Config")), null, 2);
     }
 }
 
@@ -545,7 +546,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "OhMyPosh": o([
+    "Config": o([
         { json: "accent_color", js: "accent_color", typ: u(undefined, "") },
         { json: "blocks", js: "blocks", typ: a(r("Block")) },
         { json: "console_title_template", js: "console_title_template", typ: u(undefined, "") },

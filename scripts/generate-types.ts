@@ -86,7 +86,7 @@ async function main() {
     };
 
     // Generate the types using quicktype API
-    const { lines } = await quicktypeJSONSchema("typescript", "OhMyPosh", JSON.stringify(schema), quicktypeOptions);
+    const { lines } = await quicktypeJSONSchema("typescript", "Config", JSON.stringify(schema), quicktypeOptions);
 
     // Add a header to the generated file
     const header = `/**
@@ -98,19 +98,22 @@ async function main() {
  * @see https://ohmyposh.dev/docs/
  */
 
+
 /* eslint-disable */
 /* tslint:disable */
 
+// import { parse as parseTOML, stringify as stringifyTOML } from 'smol-toml';
+// import { parse as parseYAML, stringify as stringifyYAML } from "yaml";
 `;
 
     let typesContent = header + lines.join('\n');
 
     // Ensure the OhMyPosh type is properly exported
     // This adds an export statement if one isn't already present
-    if (!typesContent.includes('export interface OhMyPosh')) {
+    if (!typesContent.includes('export interface Config')) {
       typesContent = typesContent.replace(
-        'interface OhMyPosh',
-        'export interface OhMyPosh'
+        'interface Config',
+        'export interface Config'
       );
     }
 

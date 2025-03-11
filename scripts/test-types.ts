@@ -281,21 +281,21 @@ async function main() {
     await fs.access(typesFile);
     console.log(chalk.green('Types file exists at:'), typesFile);
 
-    // Check if the OhMyPosh type is exported
+    // Check if the OhMyPosh Config type is exported
     const typesContent = await fs.readFile(typesFile, 'utf-8');
-    if (typesContent.includes('export interface OhMyPosh') ||
-      typesContent.includes('export type OhMyPosh')) {
-      console.log(chalk.green('OhMyPosh type is properly exported!'));
+    if (typesContent.includes('export interface Config') ||
+      typesContent.includes('export type Config')) {
+      console.log(chalk.green('Config type is properly exported!'));
     } else {
-      console.log(chalk.red('Warning: OhMyPosh type may not be properly exported!'));
-      console.log('Searching for OhMyPosh definition...');
+      console.log(chalk.red('Warning: Config type may not be properly exported!'));
+      console.log('Searching for Config definition...');
 
-      // Find the OhMyPosh definition
-      const match = typesContent.match(/(?:interface|type)\s+OhMyPosh/);
+      // Find the OhMyPosh Config definition
+      const match = typesContent.match(/(?:interface|type)\s+Config/);
       if (match) {
         console.log(chalk.yellow(`Found "${match[0]}" but it might not be exported properly`));
       } else {
-        console.log(chalk.red('Could not find OhMyPosh type definition!'));
+        console.log(chalk.red('Could not find Config type definition!'));
       }
     }
 
@@ -398,7 +398,7 @@ async function main() {
     console.error(chalk.red('Error testing types:'), error);
     process.exit(1);
   }
-  await fs.rm(TEMP_DIR, { recursive: true }).catch(() => { });
+
   // Clean up all temporary files at the end
   try {
     console.log(chalk.yellow('Cleaning up temporary files...'));

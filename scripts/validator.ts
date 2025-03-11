@@ -36,10 +36,10 @@ export async function validate(config: any, themeName?: string): Promise<{ valid
     // Create a temporary TypeScript file that imports the types and validates the config
     const testContent = `
 // This is a generated test file for ${themeName || 'unknown theme'}
-import { OhMyPosh } from '../src/types/omp';
+import { Config } from '../src/types/omp';
 
 // The config to validate
-const config: OhMyPosh = ${JSON.stringify(config, null, 2)};
+const config: Config = ${JSON.stringify(config, null, 2)};
 
 // If TypeScript compiles this, it means the config is valid
 console.log('Config is valid!');

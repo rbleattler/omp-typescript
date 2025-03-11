@@ -89,10 +89,10 @@ The validation report includes:
 Once you've installed this package in your project, you can use the generated types:
 
 ```typescript
-import { OhMyPosh } from 'omp-ts-typegen';
+import { Config } from '@rbleattler/omp-ts-typegen';
 
 // Use the types to validate or work with Oh My Posh config files
-const myConfig: OhMyPosh = {
+const myConfig: Config = {
   // Your config here
 };
 ```
