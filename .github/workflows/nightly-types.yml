@@ -78,7 +78,11 @@ jobs:
           DAY_OF_YEAR=$(date +%j)
 
           # Remove leading zeros to make it a proper number
-          ITERATOR=$(echo $DAY_OF_YEAR | sed 's/^0*//')
+          # Format as day of year + hour + minute (e.g. 123+hour+minute)
+          HOUR=$(date +%H)
+          MINUTE=$(date +%M)
+          DAY_WITHOUT_ZEROS=$(echo $DAY_OF_YEAR | sed 's/^0*//')
+          ITERATOR="${DAY_WITHOUT_ZEROS}${HOUR}${MINUTE}"
 
           VERSION="0.$YEAR.$ITERATOR"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
