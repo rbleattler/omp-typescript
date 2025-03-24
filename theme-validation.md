@@ -6,7 +6,7 @@ This report shows the validation status of all themes in the [Oh My Posh](https:
 - **Valid themes:** 122 (100%)
 - **Invalid themes:** 0 (0%)
 
-Last updated: 2025-03-23
+Last updated: 2025-03-24
 
 | Theme | Status |
 |-------|--------|
