@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2025-04-18T00:03:44.782Z
+ * Generated on: 2025-04-19T00:03:32.453Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -27,6 +27,10 @@
  */
 export type Config = {
     accent_color?: string;
+    /**
+     * https://ohmyposh.dev/docs/configuration/aliases
+     */
+    aliases?: { [key: string]: any };
     /**
      * https://ohmyposh.dev/docs/configuration/general#blocks
      */
@@ -550,6 +554,7 @@ function r(name: string) {
 const typeMap: any = {
     "Config": o([
         { json: "accent_color", js: "accent_color", typ: u(undefined, "") },
+        { json: "aliases", js: "aliases", typ: u(undefined, m("any")) },
         { json: "blocks", js: "blocks", typ: a(r("Block")) },
         { json: "console_title_template", js: "console_title_template", typ: u(undefined, "") },
         { json: "cycle", js: "cycle", typ: u(undefined, a(u(a("any"), true, 3.14, 0, null, r("CycleObject"), ""))) },
