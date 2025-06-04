@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2025-06-03T00:04:20.073Z
+ * Generated on: 2025-06-04T00:04:15.749Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -27,10 +27,7 @@
  */
 export type Config = {
     accent_color?: string;
-    /**
-     * https://ohmyposh.dev/docs/configuration/aliases
-     */
-    aliases?: { [key: string]: any };
+    async?:        boolean;
     /**
      * https://ohmyposh.dev/docs/configuration/general#blocks
      */
@@ -61,6 +58,10 @@ export type Config = {
     final_space?:    boolean;
     iterm_features?: TheITerm2FeaturesToEnable[];
     /**
+     * https://ohmyposh.dev/docs/configuration/general#maps
+     */
+    maps?: { [key: string]: any };
+    /**
      * https://ohmyposh.dev/docs/configuration/colors#palette
      */
     palette?: { [key: string]: string };
@@ -86,6 +87,10 @@ export type Config = {
      * https://ohmyposh.dev/docs/configuration/tooltips
      */
     tooltips?: TooltipListPromptElementsToDisplayBasedOnContext[];
+    /**
+     * https://ohmyposh.dev/docs/configuration/tooltips#tooltips-action
+     */
+    tooltips_action?: TooltipsAction;
     /**
      * https://ohmyposh.dev/docs/configuration/transient
      */
@@ -346,6 +351,11 @@ export type TooltipListPromptElementsToDisplayBasedOnContext = {
 }
 
 /**
+ * https://ohmyposh.dev/docs/configuration/tooltips#tooltips-action
+ */
+export type TooltipsAction = "replace" | "extend" | "prepend";
+
+/**
  * https://ohmyposh.dev/docs/configuration/transient
  *
  * https://ohmyposh.dev/docs/configuration/debug-prompt
@@ -554,7 +564,7 @@ function r(name: string) {
 const typeMap: any = {
     "Config": o([
         { json: "accent_color", js: "accent_color", typ: u(undefined, "") },
-        { json: "aliases", js: "aliases", typ: u(undefined, m("any")) },
+        { json: "async", js: "async", typ: u(undefined, true) },
         { json: "blocks", js: "blocks", typ: a(r("Block")) },
         { json: "console_title_template", js: "console_title_template", typ: u(undefined, "") },
         { json: "cycle", js: "cycle", typ: u(undefined, a(u(a("any"), true, 3.14, 0, null, r("CycleObject"), ""))) },
@@ -563,6 +573,7 @@ const typeMap: any = {
         { json: "error_line", js: "error_line", typ: u(undefined, r("ExtraPrompt")) },
         { json: "final_space", js: "final_space", typ: u(undefined, true) },
         { json: "iterm_features", js: "iterm_features", typ: u(undefined, a(r("TheITerm2FeaturesToEnable"))) },
+        { json: "maps", js: "maps", typ: u(undefined, m("any")) },
         { json: "palette", js: "palette", typ: u(undefined, m("")) },
         { json: "palettes", js: "palettes", typ: u(undefined, r("Palettes")) },
         { json: "patch_pwsh_bleed", js: "patch_pwsh_bleed", typ: u(undefined, true) },
@@ -571,6 +582,7 @@ const typeMap: any = {
         { json: "shell_integration", js: "shell_integration", typ: u(undefined, true) },
         { json: "terminal_background", js: "terminal_background", typ: u(undefined, "") },
         { json: "tooltips", js: "tooltips", typ: u(undefined, a(r("TooltipListPromptElementsToDisplayBasedOnContext"))) },
+        { json: "tooltips_action", js: "tooltips_action", typ: u(undefined, r("TooltipsAction")) },
         { json: "transient_prompt", js: "transient_prompt", typ: u(undefined, r("TransientPromptSetting")) },
         { json: "upgrade", js: "upgrade", typ: u(undefined, r("EnableUpgradeNotice")) },
         { json: "valid_line", js: "valid_line", typ: u(undefined, r("ExtraPrompt")) },
@@ -778,6 +790,11 @@ const typeMap: any = {
         "current_dir",
         "prompt_mark",
         "remote_host",
+    ],
+    "TooltipsAction": [
+        "extend",
+        "prepend",
+        "replace",
     ],
     "Source": [
         "cdn",
