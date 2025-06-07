@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2025-06-05T00:04:13.166Z
+ * Generated on: 2025-06-07T00:04:18.315Z
  *
  * @see https://ohmyposh.dev/docs/
  */
