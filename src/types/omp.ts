@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2025-07-02T00:04:19.827Z
+ * Generated on: 2025-07-07T00:04:16.140Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -52,6 +52,10 @@ export type Config = {
      * https://ohmyposh.dev/docs/configuration/line-error
      */
     error_line?: ExtraPrompt;
+    /**
+     * https://ohmyposh.dev/docs/configuration/general#extends
+     */
+    extends?: string;
     /**
      * https://ohmyposh.dev/docs/configuration/general#general-settings
      */
@@ -107,6 +111,10 @@ export type Config = {
      * https://ohmyposh.dev/docs/configuration/templates#config-variables
      */
     var?: { [key: string]: any };
+    /**
+     * https://ohmyposh.dev/docs/configuration/general
+     */
+    version?: number;
     [property: string]: any;
 }
 
@@ -571,6 +579,7 @@ const typeMap: any = {
         { json: "debug_prompt", js: "debug_prompt", typ: u(undefined, r("ExtraPrompt")) },
         { json: "enable_cursor_positioning", js: "enable_cursor_positioning", typ: u(undefined, true) },
         { json: "error_line", js: "error_line", typ: u(undefined, r("ExtraPrompt")) },
+        { json: "extends", js: "extends", typ: u(undefined, "") },
         { json: "final_space", js: "final_space", typ: u(undefined, true) },
         { json: "iterm_features", js: "iterm_features", typ: u(undefined, a(r("TheITerm2FeaturesToEnable"))) },
         { json: "maps", js: "maps", typ: u(undefined, m("any")) },
@@ -587,6 +596,7 @@ const typeMap: any = {
         { json: "upgrade", js: "upgrade", typ: u(undefined, r("EnableUpgradeNotice")) },
         { json: "valid_line", js: "valid_line", typ: u(undefined, r("ExtraPrompt")) },
         { json: "var", js: "var", typ: u(undefined, m("any")) },
+        { json: "version", js: "version", typ: u(undefined, 0) },
     ], "any"),
     "Block": o([
         { json: "alignment", js: "alignment", typ: u(undefined, r("BlockAlignment")) },
