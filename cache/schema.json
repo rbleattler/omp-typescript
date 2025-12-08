@@ -1645,7 +1645,7 @@
                   "extensions": {
                     "type": "array",
                     "title": "Extensions",
-                    "description": "The extensions to look for when determining if a folder is a Elixir workspace",
+                    "description": "The extensions to look for when determining if a folder is an Elixir workspace",
                     "default": [
                       "*.ex",
                       "*.exs"
@@ -3740,7 +3740,7 @@
                   "extensions": {
                     "type": "array",
                     "title": "Extensions",
-                    "description": "The extensions to look for when determining if a folder is an PNPM workspace",
+                    "description": "The extensions to look for when determining if a folder is a PNPM workspace",
                     "default": [
                       "package.json",
                       "pnpm-lock.yaml"
@@ -5229,7 +5229,7 @@
                   "extensions": {
                     "type": "array",
                     "title": "Extensions",
-                    "description": "The extensions to look for when determining if the current directory is an zig project",
+                    "description": "The extensions to look for when determining if the current directory is a zig project",
                     "default": [
                       "*.zig",
                       "*.zon"
