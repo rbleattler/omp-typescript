@@ -463,11 +463,19 @@
           "description": "https://ohmyposh.dev/docs/configuration/segment",
           "default": 0
         },
+        "options": {
+          "type": "object",
+          "title": "Segment options, used to change behavior/displaying",
+          "description": "https://ohmyposh.dev/docs/configuration/segment#options",
+          "default": {}
+        },
         "properties": {
           "type": "object",
-          "title": "Segment Properties, used to change behavior/displaying",
-          "description": "https://ohmyposh.dev/docs/configuration/segment#properties",
-          "default": {}
+          "title": "Segment Properties (DEPRECATED)",
+          "description": "DEPRECATED: Use 'options' instead. This field is maintained for backward compatibility with version 3 configs and will be removed in a future version. See https://ohmyposh.dev/docs/configuration/segment#options",
+          "default": {},
+          "deprecated": true,
+          "deprecationMessage": "The 'properties' field is deprecated. Please rename it to 'options' in your configuration."
         },
         "interactive": {
           "type": "boolean",
@@ -534,7 +542,7 @@
             "title": "Angular CLI Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/angular",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -565,7 +573,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -582,7 +591,7 @@
             "title": "Aurelia Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/aurelia",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -613,7 +622,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -630,7 +640,7 @@
             "title": "AWS Segment",
             "description": "https://ohmyposh.dev/docs/segments/cloud/aws",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "display_default": {
                     "type": "boolean",
@@ -638,7 +648,8 @@
                     "description": "Display the segment when default user or not",
                     "default": true
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -655,19 +666,20 @@
             "title": "Azure Segment",
             "description": "https://ohmyposh.dev/docs/segments/cloud/az",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "source": {
                     "type": "string",
                     "title": "Source",
-                    "description": "https://ohmyposh.dev/docs/segments/cloud/az#properties",
+                    "description": "https://ohmyposh.dev/docs/segments/cloud/az#options",
                     "default": "first_match",
                     "enum": [
                       "cli",
                       "pwsh"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -697,7 +709,7 @@
             "title": "Azure Function Segment",
             "description": "https://ohmyposh.dev/docs/segments/cloud/azfunc",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -711,7 +723,8 @@
                   "missing_command_text": {
                     "$ref": "#/definitions/missing_command_text"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -728,7 +741,7 @@
             "title": "Battery Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/battery",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "display_error": {
                     "type": "boolean",
@@ -760,7 +773,8 @@
                     "description": "Text/icon to display when on AC power",
                     "default": ""
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -777,7 +791,7 @@
             "title": "Bazel Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/bazel",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -829,7 +843,8 @@
                       "type": "string"
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -846,7 +861,7 @@
             "title": "Brewfather Batch Status",
             "description": "https://ohmyposh.dev/docs/segments/web/brewfather",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "user_id": {
                     "type": "string",
@@ -953,7 +968,8 @@
                     "description": "Available in template as .StatusIcon",
                     "default": ""
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -970,7 +986,7 @@
             "title": "Buf Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/buf",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1003,7 +1019,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1020,7 +1037,7 @@
             "title": "Bun CLI Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/bun",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1052,7 +1069,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1069,12 +1087,13 @@
             "title": "Carbon Intensity Segment",
             "description": "Displays the actual and forecast carbon intensity in gCO2/kWh using the Carbon Intensity API",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1091,7 +1110,7 @@
             "title": "CDS (SAP CAP) segment",
             "description": "https://ohmyposh.dev/docs/segments/cloud/cds",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1124,7 +1143,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1141,7 +1161,7 @@
             "title": "Clound Foundry CLI segment",
             "description": "https://ohmyposh.dev/docs/segments/cloud/cf",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1173,7 +1193,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1190,7 +1211,7 @@
             "title": "Clound Foundry Target segment",
             "description": "https://ohmyposh.dev/docs/segments/cloud/cftarget",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "display_mode": {
                     "type": "string",
@@ -1202,7 +1223,8 @@
                     ],
                     "default": "always"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1219,7 +1241,7 @@
             "title": "Cmake Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/cmake",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1251,7 +1273,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1268,12 +1291,13 @@
             "title": "GitHub Copilot Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/copilot",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1290,7 +1314,7 @@
             "title": "Connection Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/connection",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "type": {
                     "type": "string",
@@ -1322,7 +1346,8 @@
                     ],
                     "default": "none"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1339,7 +1364,7 @@
             "title": "Crystal Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/crystal",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1375,7 +1400,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1392,7 +1418,7 @@
             "title": "Dart Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/dart",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1438,7 +1464,8 @@
                       "type": "string"
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1455,7 +1482,7 @@
             "title": "Deno CLI Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/deno",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1488,7 +1515,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1530,7 +1558,7 @@
             "title": "Docker Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/docker",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "fetch_context": {
                     "type": "boolean",
@@ -1541,7 +1569,8 @@
                   "display_mode": {
                     "$ref": "#/definitions/display_mode"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1558,7 +1587,7 @@
             "title": "Dotnet Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/dotnet",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1604,7 +1633,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1621,7 +1651,7 @@
             "title": "Elixir Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/elixir",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1657,7 +1687,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1674,7 +1705,7 @@
             "title": "Displays the execution time of the previously executed command",
             "description": "https://ohmyposh.dev/docs/segments/system/executiontime",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "always_enabled": {
                     "type": "boolean",
@@ -1705,7 +1736,8 @@
                     ],
                     "default": "austin"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1735,7 +1767,7 @@
             "title": "Flutter Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/flutter",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1777,7 +1809,8 @@
                       "type": "string"
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1794,7 +1827,7 @@
             "title": "Fortran Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/fortran",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -1845,7 +1878,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1862,12 +1896,13 @@
             "title": "Fossil Segment",
             "description": "https://ohmyposh.dev/docs/segments/scm/fossil",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "native_fallback": {
                     "$ref": "#/definitions/native_fallback"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -1897,7 +1932,7 @@
             "title": "Git Segment",
             "description": "https://ohmyposh.dev/docs/segments/scm/git",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "fetch_status": {
                     "type": "boolean",
@@ -2088,7 +2123,8 @@
                   "native_fallback": {
                     "$ref": "#/definitions/native_fallback"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2118,7 +2154,7 @@
             "title": "Golang Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/golang",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2166,7 +2202,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2183,7 +2220,7 @@
             "title": "Haskell Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/haskell",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2234,7 +2271,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2251,12 +2289,13 @@
             "title": "Helm segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/helm",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "display_mode": {
                     "$ref": "#/definitions/display_mode"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2273,7 +2312,7 @@
             "title": "HTTP segment",
             "description": "https://ohmyposh.dev/docs/segments/web/http",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "url": {
                     "type": "string",
@@ -2290,7 +2329,8 @@
                       "POST"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2307,7 +2347,7 @@
             "title": "Display your external IP Address",
             "description": "https://ohmyposh.dev/docs/segments/web/ipify",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "url": {
                     "type": "string",
@@ -2318,7 +2358,8 @@
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2335,7 +2376,7 @@
             "title": "Java Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/java",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2379,7 +2420,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2396,7 +2438,7 @@
             "title": "Jujutsu Segment",
             "description": "https://ohmyposh.dev/docs/segments/scm/jujutsu",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "fetch_status": {
                     "type": "boolean",
@@ -2416,7 +2458,8 @@
                   "native_fallback": {
                     "$ref": "#/definitions/native_fallback"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2433,7 +2476,7 @@
             "title": "Julia Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/julia",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2468,7 +2511,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2485,7 +2529,7 @@
             "title": "Kotlin Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/kotlin",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2522,7 +2566,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2539,7 +2584,7 @@
             "title": "Kubectl Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/kubectl",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "display_error": {
                     "type": "boolean",
@@ -2559,7 +2604,8 @@
                     "description": "Custom context names.",
                     "default": {}
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2576,7 +2622,7 @@
             "title": "LastFM Segment",
             "description": "https://ohmyposh.dev/docs/segments/music/lastfm",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "playing_icon": {
                     "type": "string",
@@ -2605,7 +2651,8 @@
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2622,7 +2669,7 @@
             "title": "Lua Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/lua",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2668,7 +2715,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2685,7 +2733,7 @@
             "title": "Mercurial Segment",
             "description": "https://ohmyposh.dev/docs/segments/scm/mercurial",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "fetch_status": {
                     "type": "boolean",
@@ -2699,7 +2747,8 @@
                   "native_fallback": {
                     "$ref": "#/definitions/native_fallback"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2716,7 +2765,7 @@
             "title": "Mojo Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/mojo",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2765,7 +2814,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2782,7 +2832,7 @@
             "title": "Display Nightscout segment",
             "description": "https://ohmyposh.dev/docs/segments/health/nightscout",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "url": {
                     "type": "string",
@@ -2802,7 +2852,8 @@
                     "description": "A key, value map of Headers to send with the request",
                     "default": {}
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2819,7 +2870,7 @@
             "title": "Nim Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/nim",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2852,7 +2903,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2882,7 +2934,7 @@
             "title": "Node Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/node",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2941,7 +2993,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -2958,7 +3011,7 @@
             "title": "NPM Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/npm",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -2990,7 +3043,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3007,7 +3061,7 @@
             "title": "Nx Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/nx",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -3039,7 +3093,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3056,7 +3111,7 @@
             "title": "OCaml Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/ocaml",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -3095,7 +3150,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3112,7 +3168,7 @@
             "title": "Operating System Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/os",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "macos": {
                     "type": "string",
@@ -3324,7 +3380,8 @@
                     "description": "The icon to use for Android",
                     "default": "\\ue70e"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3341,7 +3398,7 @@
             "title": "Open Weather Map Segment",
             "description": "Displays the current weather from the Open Weather Map system",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "api_key": {
                     "type": "string",
@@ -3369,7 +3426,8 @@
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3386,7 +3444,7 @@
             "title": "Path Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/path",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "folder_separator_icon": {
                     "type": "string",
@@ -3538,7 +3596,8 @@
                     "description": "Indicates how many full length directory names should be displayed in fish style.",
                     "default": 1
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3555,7 +3614,7 @@
             "title": "Perl Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/perl",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -3593,7 +3652,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3610,7 +3670,7 @@
             "title": "PHP Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/php",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -3648,7 +3708,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3665,7 +3726,7 @@
             "title": "Plastic SCM Segment",
             "description": "https://ohmyposh.dev/docs/segments/scm/plastic",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "fetch_status": {
                     "type": "boolean",
@@ -3703,7 +3764,8 @@
                   "mapped_branches": {
                     "$ref": "#/definitions/mapped_branches"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3720,7 +3782,7 @@
             "title": "PNPM Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/pnpm",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -3752,7 +3814,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3800,7 +3863,7 @@
             "title": "Project Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/project",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "always_enabled": {
                     "type": "boolean",
@@ -3808,7 +3871,8 @@
                     "description": "Always show the segment",
                     "default": false
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3825,7 +3889,7 @@
             "title": "Pulumi Segment",
             "description": "https://ohmyposh.dev/docs/segments/cloud/pulumi",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "fetch_stack": {
                     "type": "boolean",
@@ -3839,7 +3903,8 @@
                     "description": "Fetch the URL and user for the current stack",
                     "default": false
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3856,7 +3921,7 @@
             "title": "Python Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/python",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -3936,7 +4001,8 @@
                       "type": "string"
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -3953,7 +4019,7 @@
             "title": "Quasar Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/quasar",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -3988,7 +4054,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4005,7 +4072,7 @@
             "title": "R Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/r",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4046,7 +4113,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4063,7 +4131,7 @@
             "title": "React Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/react",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4094,7 +4162,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4124,7 +4193,7 @@
             "title": "Ruby Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/ruby",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4158,7 +4227,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4175,7 +4245,7 @@
             "title": "Rust Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/rust",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4209,7 +4279,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4226,7 +4297,7 @@
             "title": "Sapling Segment",
             "description": "https://ohmyposh.dev/docs/segments/scm/sapling",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "fetch_status": {
                     "type": "boolean",
@@ -4240,7 +4311,8 @@
                   "native_fallback": {
                     "$ref": "#/definitions/native_fallback"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4257,7 +4329,7 @@
             "title": "Session Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/session",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "ssh_icon": {
                     "type": "string",
@@ -4265,7 +4337,8 @@
                     "description": "Text/icon to display first when in an active SSH session",
                     "default": ""
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4282,7 +4355,7 @@
             "title": "Shell Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/shell",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "custom_text": {
                     "type": "object",
@@ -4290,7 +4363,8 @@
                     "description": "Custom glyph/text for specific shells",
                     "default": {}
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4307,7 +4381,7 @@
             "title": "Sitecore Segment",
             "description": "https://ohmyposh.dev/docs/segments/cloud/sitecore",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "display_default": {
                     "type": "boolean",
@@ -4315,7 +4389,8 @@
                     "description": "Display the segment or not when the Sitecore environment name matches `default`",
                     "default": true
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4332,7 +4407,7 @@
             "title": "Spotify Segment",
             "description": "https://ohmyposh.dev/docs/segments/music/spotify",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "playing_icon": {
                     "type": "string",
@@ -4352,7 +4427,8 @@
                     "description": "Text/icon to show when stopped",
                     "default": ""
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4369,7 +4445,7 @@
             "title": "Status Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/status",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "always_enabled": {
                     "type": "boolean",
@@ -4389,7 +4465,8 @@
                     "description": "The separator to use between the status segments",
                     "default": "|"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4406,7 +4483,7 @@
             "title": "Display training data from Strava",
             "description": "https://ohmyposh.dev/docs/segments/health/strava",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "url": {
                     "type": "string",
@@ -4456,7 +4533,8 @@
                   "expires_in": {
                     "$ref": "#/definitions/expires_in"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4473,7 +4551,7 @@
             "title": "Svelte Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/svelte",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4508,7 +4586,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4525,7 +4604,7 @@
             "title": "SVN Segment",
             "description": "https://ohmyposh.dev/docs/segments/scm/svn",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "fetch_status": {
                     "type": "boolean",
@@ -4539,7 +4618,8 @@
                   "native_fallback": {
                     "$ref": "#/definitions/native_fallback"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4556,7 +4636,7 @@
             "title": "Swift Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/swift",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4592,7 +4672,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4609,7 +4690,7 @@
             "title": "Get sysinfo",
             "description": "https://ohmyposh.dev/docs/segments/system/sysinfo",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "precision": {
                     "type": "integer",
@@ -4617,7 +4698,8 @@
                     "description": "number of decimal places to show",
                     "default": 2
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4647,7 +4729,7 @@
             "title": "Tauri Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/tauri",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4682,7 +4764,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4699,7 +4782,7 @@
             "title": "Terraform Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/terraform",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "fetch_version": {
                     "type": "boolean",
@@ -4707,7 +4790,8 @@
                     "description": "Fetch the version number",
                     "default": false
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4737,7 +4821,7 @@
             "title": "Time Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/time",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "time_format": {
                     "type": "string",
@@ -4745,7 +4829,8 @@
                     "description": "Format to use, follows the golang standard: https://gobyexample.com/time-formatting-parsing",
                     "default": "15:04:05"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4762,7 +4847,7 @@
             "title": "UI5 tooling CLI segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/ui5tooling",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4793,7 +4878,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4823,12 +4909,13 @@
             "title": "Unity Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/unity",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4845,13 +4932,14 @@
             "title": "Upgrade Segment",
             "description": "https://ohmyposh.dev/docs/segments/system/upgrade",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "cache_duration": {
                     "$ref": "#/definitions/cache_duration",
                     "default": "none"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4868,7 +4956,7 @@
             "title": "V Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/v",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4903,7 +4991,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4920,7 +5009,7 @@
             "title": "Vala Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/vala",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -4955,7 +5044,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -4972,7 +5062,7 @@
             "title": "Wakatime",
             "description": "Displays the tracked time on wakatime.com",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "apikey": {
                     "type": "string",
@@ -4983,7 +5073,8 @@
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -5000,7 +5091,7 @@
             "title": "Windows Registry Query",
             "description": "https://ohmyposh.dev/docs/segments/system/winreg",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "path": {
                     "type": "string",
@@ -5014,7 +5105,8 @@
                     "description": "Value to display if registry value cannot be retrieved",
                     "default": ""
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -5031,7 +5123,7 @@
             "title": "Display activity data from Withings",
             "description": "https://ohmyposh.dev/docs/segments/health/withings",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
@@ -5045,7 +5137,8 @@
                   "expires_in": {
                     "$ref": "#/definitions/expires_in"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -5062,7 +5155,7 @@
             "title": "XMake Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/xmake",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -5093,7 +5186,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -5110,7 +5204,7 @@
             "title": "Yarn Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/yarn",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -5142,7 +5236,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -5159,7 +5254,7 @@
             "title": "YouTube Music Desktop App Segment",
             "description": "https://ohmyposh.dev/docs/segments/music/ytm",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "playing_icon": {
                     "type": "string",
@@ -5188,7 +5283,8 @@
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -5205,7 +5301,7 @@
             "title": "Zig Segment",
             "description": "https://ohmyposh.dev/docs/segments/languages/zig",
             "properties": {
-              "properties": {
+              "options": {
                 "properties": {
                   "home_enabled": {
                     "$ref": "#/definitions/home_enabled"
@@ -5241,7 +5337,8 @@
                   "folders": {
                     "$ref": "#/definitions/folders"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -5505,7 +5602,7 @@
       "type": "integer",
       "title": "Version",
       "description": "https://ohmyposh.dev/docs/configuration/general",
-      "default": 3
+      "default": 4
     },
     "extends": {
       "type": "string",

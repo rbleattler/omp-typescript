@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2025-12-08T00:04:31.185Z
+ * Generated on: 2025-12-11T00:04:19.149Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -197,7 +197,13 @@ export type Segment = {
      */
     min_width?: number;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#properties
+     * https://ohmyposh.dev/docs/configuration/segment#options
+     */
+    options?: { [key: string]: any };
+    /**
+     * DEPRECATED: Use 'options' instead. This field is maintained for backward compatibility
+     * with version 3 configs and will be removed in a future version. See
+     * https://ohmyposh.dev/docs/configuration/segment#options
      */
     properties?: { [key: string]: any };
     /**
@@ -335,7 +341,13 @@ export type TooltipListPromptElementsToDisplayBasedOnContext = {
      */
     min_width?: number;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#properties
+     * https://ohmyposh.dev/docs/configuration/segment#options
+     */
+    options?: { [key: string]: any };
+    /**
+     * DEPRECATED: Use 'options' instead. This field is maintained for backward compatibility
+     * with version 3 configs and will be removed in a future version. See
+     * https://ohmyposh.dev/docs/configuration/segment#options
      */
     properties?: { [key: string]: any };
     /**
@@ -618,6 +630,7 @@ const typeMap: any = {
         { json: "interactive", js: "interactive", typ: u(undefined, true) },
         { json: "max_width", js: "max_width", typ: u(undefined, 0) },
         { json: "min_width", js: "min_width", typ: u(undefined, 0) },
+        { json: "options", js: "options", typ: u(undefined, m("any")) },
         { json: "properties", js: "properties", typ: u(undefined, m("any")) },
         { json: "style", js: "style", typ: "" },
         { json: "template", js: "template", typ: u(undefined, "") },
@@ -655,6 +668,7 @@ const typeMap: any = {
         { json: "interactive", js: "interactive", typ: u(undefined, true) },
         { json: "max_width", js: "max_width", typ: u(undefined, 0) },
         { json: "min_width", js: "min_width", typ: u(undefined, 0) },
+        { json: "options", js: "options", typ: u(undefined, m("any")) },
         { json: "properties", js: "properties", typ: u(undefined, m("any")) },
         { json: "style", js: "style", typ: "" },
         { json: "template", js: "template", typ: u(undefined, "") },
