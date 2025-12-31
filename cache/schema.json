@@ -439,6 +439,7 @@
             "v",
             "vala",
             "wakatime",
+            "winget",
             "winreg",
             "withings",
             "xmake",
@@ -2132,6 +2133,18 @@
                     "description": "Don't snapshot the working copy, and don't update it",
                     "default": true
                   },
+                  "fetch_ahead_counter": {
+                    "type": "boolean",
+                    "title": "Fetch Ahead Counter",
+                    "description": "Fetch working copy # of changes ahead of the nearest bookmark",
+                    "default": false
+                  },
+                  "ahead_icon": {
+                    "type": "string",
+                    "title": "Ahead icon",
+                    "description": "Icon to separate bookmark name and ahead counter",
+                    "default": false
+                  },
                   "status_formats": {
                     "$ref": "#/definitions/status_formats"
                   },
@@ -2264,15 +2277,15 @@
                 "properties": {
                   "playing_icon": {
                     "type": "string",
-                    "title": "User Info Separator",
+                    "title": "Playing Icon",
                     "description": "Text/icon to show when playing",
-                    "default": ""
+                    "default": " "
                   },
                   "stopped_icon": {
                     "type": "string",
-                    "title": "SSH Icon",
+                    "title": "Stopped Icon",
                     "description": "Text/icon to show when stopped",
-                    "default": ""
+                    "default": " "
                   },
                   "api_key": {
                     "type": "string",
@@ -3694,19 +3707,19 @@
                     "type": "string",
                     "title": "Playing Icon",
                     "description": "Text/icon to show when playing",
-                    "default": ""
+                    "default": " "
                   },
                   "paused_icon": {
                     "type": "string",
                     "title": "Paused Icon",
                     "description": "Text/icon to show when paused",
-                    "default": ""
+                    "default": " "
                   },
                   "stopped_icon": {
                     "type": "string",
                     "title": "Stopped Icon",
                     "description": "Text/icon to show when stopped",
-                    "default": ""
+                    "default": " "
                   }
                 },
                 "additionalProperties": false
@@ -4224,6 +4237,19 @@
           "if": {
             "properties": {
               "type": {
+                "const": "winget"
+              }
+            }
+          },
+          "then": {
+            "title": "WinGet",
+            "description": "https://ohmyposh.dev/docs/segments/system/winget"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
                 "const": "winreg"
               }
             }
@@ -4361,13 +4387,13 @@
                     "type": "string",
                     "title": "Playing Icon",
                     "description": "Text/icon to show when playing",
-                    "default": " "
+                    "default": " "
                   },
                   "paused_icon": {
                     "type": "string",
                     "title": "Paused Icon",
                     "description": "Text/icon to show when paused",
-                    "default": " "
+                    "default": " "
                   },
                   "stopped_icon": {
                     "type": "string",
@@ -4375,11 +4401,11 @@
                     "description": "Text/icon to show when stopped",
                     "default": " "
                   },
-                  "api_url": {
+                  "ad_icon": {
                     "type": "string",
-                    "title": "API URL",
-                    "description": "The YTMDA Remote Control API URL",
-                    "default": "http://127.0.0.1:9863"
+                    "title": "Advertisement Icon",
+                    "description": "Text/icon to show when an advertisement is playing",
+                    "default": " "
                   },
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
