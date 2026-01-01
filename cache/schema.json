@@ -392,6 +392,7 @@
             "mercurial",
             "mojo",
             "mvn",
+            "nba",
             "nbgv",
             "nightscout",
             "nim",
@@ -2465,6 +2466,41 @@
           "if": {
             "properties": {
               "type": {
+                "const": "nba"
+              }
+            }
+          },
+          "then": {
+            "title": "NBA Segment",
+            "description": "https://ohmyposh.dev/docs/segments/web/nba",
+            "properties": {
+              "options": {
+                "properties": {
+                  "team": {
+                    "type": "string",
+                    "title": "Team",
+                    "description": "Tri-code for the NBA team you want to get data for",
+                    "default": ""
+                  },
+                  "days_offset": {
+                    "type": "integer",
+                    "title": "Days Offset",
+                    "description": "How many days in advance you wish to see game information for",
+                    "default": 8
+                  },
+                  "http_timeout": {
+                    "$ref": "#/definitions/http_timeout"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
                 "const": "nim"
               }
             }
@@ -2688,11 +2724,35 @@
                     "description": "Display the distro name or icon or not",
                     "default": false
                   },
+                  "alma": {
+                    "type": "string",
+                    "title": "Alma Icon",
+                    "description": "The icon to use for Alma",
+                    "default": ""
+                  },
+                  "almalinux": {
+                    "type": "string",
+                    "title": "AlmaLinux Icon",
+                    "description": "The icon to use for AlmaLinux",
+                    "default": ""
+                  },
+                  "almalinux9": {
+                    "type": "string",
+                    "title": "AlmaLinux9 Icon",
+                    "description": "The icon to use for AlmaLinux9",
+                    "default": ""
+                  },
                   "alpine": {
                     "type": "string",
                     "title": "Alpine Icon",
                     "description": "The icon to use for Alpine",
                     "default": ""
+                  },
+                  "android": {
+                    "type": "string",
+                    "title": "Android Icon",
+                    "description": "The icon to use for Android",
+                    "default": ""
                   },
                   "aosc": {
                     "type": "string",
@@ -2710,7 +2770,7 @@
                     "type": "string",
                     "title": "Centos Icon",
                     "description": "The icon to use for Centos",
-                    "default": ""
+                    "default": ""
                   },
                   "coreos": {
                     "type": "string",
@@ -2736,12 +2796,6 @@
                     "description": "The icon to use for Devuan",
                     "default": ""
                   },
-                  "raspbian": {
-                    "type": "string",
-                    "title": "Raspbian Icon",
-                    "description": "The icon to use for Raspbian",
-                    "default": ""
-                  },
                   "elementary": {
                     "type": "string",
                     "title": "Elementary Icon",
@@ -2764,7 +2818,7 @@
                     "type": "string",
                     "title": "FreeBSD Icon",
                     "description": "The icon to use for FreeBSD",
-                    "default": "\\U000f08e0"
+                    "default": "󰣠"
                   },
                   "gentoo": {
                     "type": "string",
@@ -2776,7 +2830,7 @@
                     "type": "string",
                     "title": "Kali Icon",
                     "description": "The icon to use for Kali",
-                    "default": "\\uf327"
+                    "default": ""
                   },
                   "mageia": {
                     "type": "string",
@@ -2794,13 +2848,13 @@
                     "type": "string",
                     "title": "Mint Icon",
                     "description": "The icon to use for Mint",
-                    "default": ""
+                    "default": "󰣭"
                   },
                   "neon": {
                     "type": "string",
                     "title": "Neon Icon",
                     "description": "The icon to use for Neon",
-                    "default": "\\uf331"
+                    "default": ""
                   },
                   "nixos": {
                     "type": "string",
@@ -2820,11 +2874,23 @@
                     "description": "The icon to use for OpenSUSE Tumbleweed",
                     "default": ""
                   },
+                  "raspbian": {
+                    "type": "string",
+                    "title": "Raspbian Icon",
+                    "description": "The icon to use for Raspbian",
+                    "default": ""
+                  },
                   "redhat": {
                     "type": "string",
                     "title": "Redhat Icon",
                     "description": "The icon to use for Redhat",
                     "default": ""
+                  },
+                  "rocky": {
+                    "type": "string",
+                    "title": "Rocky Icon",
+                    "description": "The icon to use for Rocky",
+                    "default": ""
                   },
                   "sabayon": {
                     "type": "string",
@@ -2843,36 +2909,6 @@
                     "title": "Ubuntu Icon",
                     "description": "The icon to use for Ubuntu",
                     "default": ""
-                  },
-                  "rocky": {
-                    "type": "string",
-                    "title": "Rocky Icon",
-                    "description": "The icon to use for Rocky",
-                    "default": ""
-                  },
-                  "alma": {
-                    "type": "string",
-                    "title": "Alma Icon",
-                    "description": "The icon to use for Alma",
-                    "default": ""
-                  },
-                  "almalinux": {
-                    "type": "string",
-                    "title": "AlmaLinux Icon",
-                    "description": "The icon to use for AlmaLinux",
-                    "default": ""
-                  },
-                  "almalinux9": {
-                    "type": "string",
-                    "title": "AlmaLinux9 Icon",
-                    "description": "The icon to use for AlmaLinux9",
-                    "default": ""
-                  },
-                  "android": {
-                    "type": "string",
-                    "title": "Android Icon",
-                    "description": "The icon to use for Android",
-                    "default": "\\ue70e"
                   }
                 },
                 "additionalProperties": false
