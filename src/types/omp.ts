@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2026-01-03T00:04:09.938Z
+ * Generated on: 2026-01-04T00:04:32.879Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -127,6 +127,18 @@ export type Block = {
      */
     alignment?: BlockAlignment;
     /**
+     * https://ohmyposh.dev/docs/configuration/block#filler
+     */
+    filler?: string;
+    /**
+     * https://ohmyposh.dev/docs/configuration/block#force
+     */
+    force?: boolean;
+    /**
+     * https://ohmyposh.dev/docs/configuration/block#index
+     */
+    index?: number;
+    /**
      * https://ohmyposh.dev/docs/configuration/block#leading-diamond
      */
     leading_diamond?: string;
@@ -134,6 +146,10 @@ export type Block = {
      * https://ohmyposh.dev/docs/configuration/block#newline
      */
     newline?: boolean;
+    /**
+     * https://ohmyposh.dev/docs/configuration/block#overflow
+     */
+    overflow?: string;
     /**
      * https://ohmyposh.dev/docs/configuration/block#segments
      */
@@ -612,8 +628,12 @@ const typeMap: any = {
     ], "any"),
     "Block": o([
         { json: "alignment", js: "alignment", typ: u(undefined, r("BlockAlignment")) },
+        { json: "filler", js: "filler", typ: u(undefined, "") },
+        { json: "force", js: "force", typ: u(undefined, true) },
+        { json: "index", js: "index", typ: u(undefined, 0) },
         { json: "leading_diamond", js: "leading_diamond", typ: u(undefined, "") },
         { json: "newline", js: "newline", typ: u(undefined, true) },
+        { json: "overflow", js: "overflow", typ: u(undefined, "") },
         { json: "segments", js: "segments", typ: u(undefined, a(r("Segment"))) },
         { json: "trailing_diamond", js: "trailing_diamond", typ: u(undefined, "") },
         { json: "type", js: "type", typ: u(undefined, r("BlockType")) },

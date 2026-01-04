@@ -305,6 +305,18 @@
           "description": "https://ohmyposh.dev/docs/configuration/block#newline",
           "default": false
         },
+        "filler": {
+          "type": "string",
+          "title": "Filler",
+          "description": "https://ohmyposh.dev/docs/configuration/block#filler",
+          "default": ""
+        },
+        "overflow": {
+          "type": "string",
+          "title": "Overflow",
+          "description": "https://ohmyposh.dev/docs/configuration/block#overflow",
+          "default": ""
+        },
         "leading_diamond": {
           "type": "string",
           "title": "Leading diamond",
@@ -325,6 +337,17 @@
           "items": {
             "$ref": "#/definitions/segment"
           }
+        },
+        "force": {
+          "type": "boolean",
+          "title": "Force",
+          "description": "https://ohmyposh.dev/docs/configuration/block#force",
+          "default": false
+        },
+        "index": {
+          "type": "integer",
+          "title": "Index",
+          "description": "https://ohmyposh.dev/docs/configuration/block#index"
         }
       }
     },
@@ -2138,6 +2161,12 @@
             "properties": {
               "options": {
                 "properties": {
+                  "change_id_min_len": {
+                    "type": "integer",
+                    "title": "Change ID Minimum Length",
+                    "description": "Minimum length of the change ID to display",
+                    "default": 0
+                  },
                   "fetch_status": {
                     "type": "boolean",
                     "title": "Display Status",
@@ -2160,13 +2189,13 @@
                     "type": "string",
                     "title": "Ahead icon",
                     "description": "Icon to separate bookmark name and ahead counter",
-                    "default": false
-                  },
-                  "status_formats": {
-                    "$ref": "#/definitions/status_formats"
+                    "default": "⇡"
                   },
                   "native_fallback": {
                     "$ref": "#/definitions/native_fallback"
+                  },
+                  "status_formats": {
+                    "$ref": "#/definitions/status_formats"
                   }
                 },
                 "additionalProperties": false
@@ -2624,17 +2653,29 @@
                     "description": "Assigns the Yarn or NPM icon to .PackageManagerIcon",
                     "default": false
                   },
+                  "pnpm_icon": {
+                    "type": "string",
+                    "title": "PNPM Icon",
+                    "description": "Icon/text to use for PNPM",
+                    "default": ""
+                  },
                   "yarn_icon": {
                     "type": "string",
                     "title": "Yarn Icon",
                     "description": "Icon/text to use for Yarn",
-                    "default": "B"
+                    "default": ""
                   },
                   "npm_icon": {
                     "type": "string",
                     "title": "NPM Icon",
                     "description": "Icon/text to use for NPM",
                     "default": ""
+                  },
+                  "bun_icon": {
+                    "type": "string",
+                    "title": "Bun Icon",
+                    "description": "Icon/text to use for Bun",
+                    "default": ""
                   },
                   "extensions": {
                     "default": [
@@ -2645,6 +2686,11 @@
                       "pnpm-workspace.yaml",
                       ".pnpmfile.cjs",
                       ".vue"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "node"
                     ]
                   }
                 }
