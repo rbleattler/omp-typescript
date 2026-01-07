@@ -620,10 +620,28 @@
                     "default": [
                       "angular.json"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "angular"
+                    ]
                   }
                 }
               }
             }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "argocd"
+              }
+            }
+          },
+          "then": {
+            "title": "ArgoCD Segment",
+            "description": "https://ohmyposh.dev/docs/segments/cli/argocd"
           }
         },
         {
@@ -648,6 +666,11 @@
                   "extensions": {
                     "default": [
                       "package.json"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "aurelia"
                     ]
                   }
                 }
@@ -737,18 +760,23 @@
             "description": "https://ohmyposh.dev/docs/segments/cloud/azfunc",
             "properties": {
               "options": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/language_options"
+                  }
+                ],
                 "properties": {
-                  "home_enabled": {
-                    "$ref": "#/definitions/home_enabled"
+                  "extensions": {
+                    "default": [
+                      "host.json",
+                      "local.settings.json",
+                      "function.json"
+                    ]
                   },
-                  "fetch_version": {
-                    "$ref": "#/definitions/fetch_version"
-                  },
-                  "display_mode": {
-                    "$ref": "#/definitions/display_mode"
-                  },
-                  "missing_command_text": {
-                    "$ref": "#/definitions/missing_command_text"
+                  "tooling": {
+                    "default": [
+                      "func"
+                    ]
                   }
                 },
                 "additionalProperties": false
@@ -840,6 +868,11 @@
                       "bazel-bin",
                       "bazel-out",
                       "bazel-testlogs"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "bazel"
                     ]
                   },
                   "icon": {
@@ -1003,6 +1036,11 @@
                       "buf.gen.yaml",
                       "buf.work.yaml"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "buf"
+                    ]
                   }
                 }
               }
@@ -1033,6 +1071,11 @@
                       "bun.lockb",
                       "bun.lock"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "bun"
+                    ]
                   }
                 }
               }
@@ -1049,7 +1092,7 @@
           },
           "then": {
             "title": "Carbon Intensity Segment",
-            "description": "Displays the actual and forecast carbon intensity in gCO2/kWh using the Carbon Intensity API",
+            "description": "https://ohmyposh.dev/docs/segments/web/carbonintensity",
             "properties": {
               "options": {
                 "properties": {
@@ -1087,6 +1130,11 @@
                       ".cdsrc-private.json",
                       "*.cds"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "cds"
+                    ]
                   }
                 }
               }
@@ -1117,6 +1165,11 @@
                       "manifest.yml",
                       "mta.yaml"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "cf"
+                    ]
                   }
                 }
               }
@@ -1138,14 +1191,23 @@
               "options": {
                 "properties": {
                   "display_mode": {
-                    "type": "string",
-                    "title": "Display Mode",
-                    "description": "Determines whether the segment is displayed always or only if a file matching the extensions are present in the current folder",
+                    "$ref": "#/definitions/display_mode",
                     "enum": [
                       "always",
                       "files"
                     ],
                     "default": "always"
+                  },
+                  "files": {
+                    "type": "array",
+                    "title": "Files",
+                    "description": "The files to display in the segment",
+                    "default": [
+                      "manifest.yml"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
                   }
                 },
                 "additionalProperties": false
@@ -1182,6 +1244,12 @@
                       "*.cljc",
                       "*.cljs"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "clojure",
+                      "lein"
+                    ]
                   }
                 }
               }
@@ -1211,6 +1279,11 @@
                     "default": [
                       "*.cmake",
                       "CMakeLists.txt"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "cmake"
                     ]
                   }
                 }
@@ -1333,6 +1406,11 @@
                       "*.cr",
                       "shard.yml"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "crystal"
+                    ]
                   }
                 }
               }
@@ -1365,6 +1443,17 @@
                       "pubspec.yml",
                       "pubspec.lock"
                     ]
+                  },
+                  "folders": {
+                    "default": [
+                      ".dart_tool"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "fvm",
+                      "dart"
+                    ]
                   }
                 }
               }
@@ -1395,6 +1484,11 @@
                       "*.js",
                       "*.ts",
                       "deno.json"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "deno"
                     ]
                   }
                 }
@@ -1442,7 +1536,11 @@
               "options": {
                 "properties": {
                   "display_mode": {
-                    "$ref": "#/definitions/display_mode"
+                    "$ref": "#/definitions/display_mode",
+                    "enum": [
+                      "files",
+                      "context"
+                    ]
                   },
                   "extensions": {
                     "default": [
@@ -1499,6 +1597,17 @@
                       "*.vbproj",
                       "global.json"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "dotnet"
+                    ]
+                  },
+                  "fetch_sdk_version": {
+                    "type": "boolean",
+                    "title": "Fetch SDK Version",
+                    "description": "Fetch the .NET SDK version used in global.json",
+                    "default": false
                   }
                 }
               }
@@ -1528,6 +1637,12 @@
                     "default": [
                       "*.ex",
                       "*.exs"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "asdf",
+                      "elixir"
                     ]
                   }
                 }
@@ -1623,6 +1738,17 @@
                       "pubspec.yml",
                       "pubspec.lock"
                     ]
+                  },
+                  "folders": {
+                    "default": [
+                      ".dart_tool"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "fvm",
+                      "flutter"
+                    ]
                   }
                 }
               }
@@ -1667,6 +1793,11 @@
                       "*.F95",
                       "*.F03",
                       "*.F08"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "gfortran"
                     ]
                   }
                 }
@@ -1728,12 +1859,12 @@
                     "type": "boolean",
                     "title": "Display Status",
                     "description": "Display the local changes or not",
-                    "default": true
+                    "default": false
                   },
-                  "fetch_worktree_count": {
+                  "fetch_push_status": {
                     "type": "boolean",
-                    "title": "Display Worktree Count",
-                    "description": "Display the worktree count or not",
+                    "title": "Display Push Status",
+                    "description": "Display the push-remote ahead/behind information or not",
                     "default": false
                   },
                   "fetch_upstream_icon": {
@@ -1746,6 +1877,12 @@
                     "type": "boolean",
                     "title": "Fetch info when in a bare repo",
                     "description": "Fetch info when in a bare repo or not",
+                    "default": false
+                  },
+                  "fetch_user": {
+                    "type": "boolean",
+                    "title": "Fetch the user",
+                    "description": "Fetch the current configured user for the repository",
                     "default": false
                   },
                   "disable_with_jj": {
@@ -1828,14 +1965,14 @@
                   },
                   "github_icon": {
                     "type": "string",
-                    "title": "Github Icon",
-                    "description": "Icon/text to display when the upstream is Github",
+                    "title": "GitHub Icon",
+                    "description": "Icon/text to display when the upstream is GitHub",
                     "default": ""
                   },
                   "gitlab_icon": {
                     "type": "string",
-                    "title": "Gitlab Icon",
-                    "description": "Icon/text to display when the upstream is Gitlab",
+                    "title": "GitLab Icon",
+                    "description": "Icon/text to display when the upstream is GitLab",
                     "default": ""
                   },
                   "bitbucket_icon": {
@@ -1868,6 +2005,12 @@
                     "description": "Icon/text to display when the upstream is not known/mapped",
                     "default": ""
                   },
+                  "upstream_icons": {
+                    "type": "object",
+                    "title": "Status string formats",
+                    "description": "a key, value map representing the remote URL (or a part of that URL) and icon to use in case the upstream URL contains the key. These get precedence over the standard icons",
+                    "default": {}
+                  },
                   "untracked_modes": {
                     "type": "object",
                     "title": "Untracked files mode",
@@ -1889,20 +2032,8 @@
                       "type": "string"
                     }
                   },
-                  "fetch_user": {
-                    "type": "boolean",
-                    "title": "Fetch the user",
-                    "description": "Fetch the current configured user for the repository",
-                    "default": false
-                  },
                   "status_formats": {
                     "$ref": "#/definitions/status_formats"
-                  },
-                  "upstream_icons": {
-                    "type": "object",
-                    "title": "Status string formats",
-                    "description": "a key, value map representing the remote URL (or a part of that URL) and icon to use in case the upstream URL contains the key. These get precedence over the standard icons",
-                    "default": {}
                   },
                   "mapped_branches": {
                     "$ref": "#/definitions/mapped_branches"
@@ -1966,7 +2097,16 @@
                   "extensions": {
                     "default": [
                       "*.go",
-                      "go.mod"
+                      "go.mod",
+                      "go.work",
+                      "go.sum",
+                      "go.work.sum"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "mod",
+                      "go"
                     ]
                   }
                 }
@@ -2013,6 +2153,11 @@
                       "*.cabal",
                       "cabal.project"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "ghc"
+                    ]
                   }
                 }
               }
@@ -2034,7 +2179,12 @@
               "options": {
                 "properties": {
                   "display_mode": {
-                    "$ref": "#/definitions/display_mode"
+                    "$ref": "#/definitions/display_mode",
+                    "enum": [
+                      "always",
+                      "files"
+                    ],
+                    "default": "always"
                   }
                 },
                 "additionalProperties": false
@@ -2069,7 +2219,8 @@
                     "enum": [
                       "GET",
                       "POST"
-                    ]
+                    ],
+                    "default": "GET"
                   }
                 },
                 "additionalProperties": false
@@ -2099,6 +2250,10 @@
                   },
                   "http_timeout": {
                     "$ref": "#/definitions/http_timeout"
+                  },
+                  "cache_duration": {
+                    "$ref": "#/definitions/cache_duration",
+                    "default": "24h"
                   }
                 },
                 "additionalProperties": false
@@ -2140,6 +2295,11 @@
                       "*.jar",
                       "*.clj",
                       "*.cljc"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "java"
                     ]
                   }
                 }
@@ -2226,6 +2386,11 @@
                     "default": [
                       "*.jl"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "julia"
+                    ]
                   }
                 }
               }
@@ -2256,6 +2421,11 @@
                       "*.kt",
                       "*.kts",
                       "*.ktm"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "kotlin"
                     ]
                   }
                 }
@@ -2464,6 +2634,11 @@
                       "*.mojo",
                       "mojoproject.toml"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "mojo"
+                    ]
                   }
                 }
               }
@@ -2492,6 +2667,11 @@
                   "extensions": {
                     "default": [
                       "pom.xml"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "mvn"
                     ]
                   }
                 }
@@ -2536,7 +2716,7 @@
                     "type": "integer",
                     "title": "Http request timeout",
                     "description": "Milliseconds to use for http request timeouts",
-                    "default": 500
+                    "default": 20
                   },
                   "headers": {
                     "type": "object",
@@ -2608,6 +2788,11 @@
                     "default": [
                       "*.nim",
                       "*.nims"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "nim"
                     ]
                   }
                 }
@@ -2722,6 +2907,11 @@
                       "package.json",
                       "package-lock.json"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "npm"
+                    ]
                   }
                 }
               }
@@ -2751,6 +2941,11 @@
                     "default": [
                       "workspace.json",
                       "nx.json"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "nx"
                     ]
                   }
                 }
@@ -2784,6 +2979,11 @@
                       "dune",
                       "dune-project",
                       "dune-workspace"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "ocaml"
                     ]
                   }
                 }
@@ -3031,7 +3231,7 @@
           },
           "then": {
             "title": "Open Weather Map Segment",
-            "description": "Displays the current weather from the Open Weather Map system",
+            "description": "https://ohmyposh.dev/docs/segments/web/owm",
             "properties": {
               "options": {
                 "properties": {
@@ -3263,6 +3463,11 @@
                       "*.pm",
                       "*.t"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "perl"
+                    ]
                   }
                 }
               }
@@ -3293,7 +3498,13 @@
                       "*.php",
                       "composer.json",
                       "composer.lock",
-                      ".php-version"
+                      ".php-version",
+                      "blade.php"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "php"
                     ]
                   }
                 }
@@ -3380,6 +3591,11 @@
                     "default": [
                       "package.json",
                       "pnpm-lock.yaml"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "pnpm"
                     ]
                   }
                 }
@@ -3518,10 +3734,10 @@
                   "folders": {
                     "default": [
                       ".venv",
-                      "pyenv-win",
                       "venv",
+                      "virtualenv",
                       "venv-win",
-                      "virtualenv"
+                      "pyenv-win"
                     ]
                   },
                   "tooling": {
@@ -3578,12 +3794,17 @@
                     "type": "boolean",
                     "title": "Fetch Dependencies",
                     "description": "Fetch the vite and @quasar/app-vite dependency information or not",
-                    "default": true
+                    "default": false
                   },
                   "extensions": {
                     "default": [
                       "quasar.config",
                       "quasar.config.js"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "quasar"
                     ]
                   }
                 }
@@ -3620,6 +3841,13 @@
                       "*.Rproj",
                       ".Rproj.user"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "Rscript",
+                      "R",
+                      "R.exe"
+                    ]
                   }
                 }
               }
@@ -3648,6 +3876,11 @@
                   "extensions": {
                     "default": [
                       "package.json"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "react"
                     ]
                   }
                 }
@@ -3693,6 +3926,15 @@
                       "Rakefile",
                       "Gemfile"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "rbenv",
+                      "rvm-prompt",
+                      "chruby",
+                      "asdf",
+                      "ruby"
+                    ]
                   }
                 }
               }
@@ -3723,6 +3965,11 @@
                       "*.rs",
                       "Cargo.toml",
                       "Cargo.lock"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "rustc"
                     ]
                   }
                 }
@@ -3937,12 +4184,6 @@
             "properties": {
               "options": {
                 "properties": {
-                  "url": {
-                    "type": "string",
-                    "title": "URL of API with Strava data",
-                    "description": "Url of your api provinding a Strava activity",
-                    "default": ""
-                  },
                   "ride_icon": {
                     "type": "string",
                     "title": "Ride icon",
@@ -4014,6 +4255,11 @@
                     "default": [
                       "svelte.config.js"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "svelte"
+                    ]
                   }
                 }
               }
@@ -4038,7 +4284,7 @@
                     "type": "boolean",
                     "title": "Display Status",
                     "description": "Display the local changes or not",
-                    "default": true
+                    "default": false
                   },
                   "status_formats": {
                     "$ref": "#/definitions/status_formats"
@@ -4074,7 +4320,13 @@
                   "extensions": {
                     "default": [
                       "*.swift",
-                      "*.SWIFT"
+                      "*.SWIFT",
+                      "Podfile"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "swift"
                     ]
                   }
                 }
@@ -4254,6 +4506,11 @@
                     "default": [
                       "*ui5*.y*ml"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "ui5"
+                    ]
                   }
                 }
               }
@@ -4343,6 +4600,11 @@
                     "default": [
                       "*.v"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "v"
+                    ]
                   }
                 }
               }
@@ -4372,6 +4634,11 @@
                     "default": [
                       "*.vala"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "vala"
+                    ]
                   }
                 }
               }
@@ -4388,14 +4655,14 @@
           },
           "then": {
             "title": "Wakatime",
-            "description": "Displays the tracked time on wakatime.com",
+            "description": "https://ohmyposh.dev/docs/segments/web/wakatime",
             "properties": {
               "options": {
                 "properties": {
-                  "apikey": {
+                  "url": {
                     "type": "string",
-                    "title": "apikey",
-                    "description": "The apikey used for the api call (Required)",
+                    "title": "URL",
+                    "description": "The url used for the api call (Required)",
                     "default": "."
                   },
                   "http_timeout": {
@@ -4507,6 +4774,11 @@
                     "default": [
                       "xmake.lua"
                     ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "xmake"
+                    ]
                   }
                 }
               }
@@ -4536,6 +4808,11 @@
                     "default": [
                       "package.json",
                       "yarn.lock"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "yarn"
                     ]
                   }
                 }
@@ -4613,6 +4890,11 @@
                     "default": [
                       "*.zig",
                       "*.zon"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "zig"
                     ]
                   }
                 }
