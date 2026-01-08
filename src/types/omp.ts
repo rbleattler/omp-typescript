@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2026-01-07T00:04:15.025Z
+ * Generated on: 2026-01-08T00:04:19.092Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -256,7 +256,7 @@ export type CacheSettings = {
 /**
  * https://ohmyposh.dev/docs/configuration/segment#strategy
  */
-export type CacheStrategy = "folder" | "session";
+export type CacheStrategy = "folder" | "session" | "device";
 
 /**
  * https://ohmyposh.dev/docs/configuration/segment
@@ -716,6 +716,7 @@ const typeMap: any = {
         "right",
     ],
     "CacheStrategy": [
+        "device",
         "folder",
         "session",
     ],
