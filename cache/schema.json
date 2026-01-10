@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "type": "object",
   "title": "The Oh My Posh theme definition",
@@ -700,7 +700,7 @@
                     "default": true
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -730,7 +730,7 @@
                     ]
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -780,7 +780,7 @@
                     ]
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -830,7 +830,7 @@
                     "default": ""
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -1007,7 +1007,7 @@
                     "default": ""
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -1101,7 +1101,7 @@
                     "$ref": "#/definitions/http_timeout"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -1211,7 +1211,7 @@
                     }
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -1305,7 +1305,7 @@
             "description": "https://ohmyposh.dev/docs/segments/cli/claude",
             "properties": {
               "options": {
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -1328,7 +1328,7 @@
                     "$ref": "#/definitions/http_timeout"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -1360,7 +1360,7 @@
                     "default": "wifi|ethernet"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -1541,7 +1541,7 @@
                     "default": true
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -1677,7 +1677,7 @@
                     "default": "austin"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -1806,7 +1806,7 @@
                     "$ref": "#/definitions/native_fallback"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2028,7 +2028,7 @@
                     "$ref": "#/definitions/native_fallback"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2170,7 +2170,7 @@
                     "default": "always"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2206,7 +2206,7 @@
                     "default": "GET"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2239,7 +2239,7 @@
                     "default": "24h"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2341,7 +2341,7 @@
                     "$ref": "#/definitions/status_formats"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2455,7 +2455,7 @@
                     "default": {}
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2502,7 +2502,7 @@
                     "$ref": "#/definitions/http_timeout"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2575,7 +2575,7 @@
                     "$ref": "#/definitions/native_fallback"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2708,7 +2708,7 @@
                     "default": {}
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -2743,7 +2743,7 @@
                     "$ref": "#/definitions/http_timeout"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -3199,7 +3199,7 @@
                     "default": ""
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -3245,7 +3245,7 @@
                     "$ref": "#/definitions/http_timeout"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -3421,7 +3421,7 @@
                     "default": 1
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -3552,7 +3552,7 @@
                     "$ref": "#/definitions/mapped_branches"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -3675,7 +3675,7 @@
                     "default": false
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -3992,7 +3992,7 @@
                     "$ref": "#/definitions/native_fallback"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4038,7 +4038,7 @@
                     }
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4064,7 +4064,7 @@
                     "default": true
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4102,7 +4102,7 @@
                     "default": " "
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4140,7 +4140,7 @@
                     "default": "|"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4202,7 +4202,7 @@
                     "$ref": "#/definitions/expires_in"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4268,7 +4268,7 @@
                     "$ref": "#/definitions/native_fallback"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4330,7 +4330,7 @@
                     "default": 2
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4414,7 +4414,7 @@
                     "default": false
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4453,7 +4453,7 @@
                     "default": "15:04:05"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4523,7 +4523,7 @@
                     "$ref": "#/definitions/http_timeout"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4547,7 +4547,7 @@
                     "default": "168h"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4644,7 +4644,7 @@
                     "$ref": "#/definitions/http_timeout"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4689,7 +4689,7 @@
                     "default": ""
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4721,7 +4721,7 @@
                     "$ref": "#/definitions/expires_in"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
@@ -4837,7 +4837,7 @@
                     "$ref": "#/definitions/http_timeout"
                   }
                 },
-                "additionalProperties": false
+                "unevaluatedProperties": false
               }
             }
           }
