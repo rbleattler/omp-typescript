@@ -3198,6 +3198,12 @@
                     "title": "Ubuntu Icon",
                     "description": "The icon to use for Ubuntu",
                     "default": ""
+                  },
+                  "void": {
+                    "type": "string",
+                    "title": "Void Icon",
+                    "description": "The icon to use for Void",
+                    "default": ""
                   }
                 },
                 "unevaluatedProperties": false
