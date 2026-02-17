@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2026-02-12T00:06:10.841Z
+ * Generated on: 2026-02-17T00:07:03.404Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -84,8 +84,12 @@ export type Config = {
     /**
      * https://ohmyposh.dev/docs/configuration/secondary-prompt
      */
-    secondary_prompt?:    ExtraPrompt;
-    shell_integration?:   boolean;
+    secondary_prompt?:  ExtraPrompt;
+    shell_integration?: boolean;
+    /**
+     * https://ohmyposh.dev/docs/experimental/streaming
+     */
+    streaming?:           number;
     terminal_background?: string;
     /**
      * https://ohmyposh.dev/docs/configuration/tooltips
@@ -216,6 +220,11 @@ export type Segment = {
      * https://ohmyposh.dev/docs/configuration/segment#options
      */
     options?: { [key: string]: any };
+    /**
+     * Text to display while the segment is loading in streaming mode. See
+     * https://ohmyposh.dev/docs/experimental/streaming
+     */
+    placeholder?: string;
     /**
      * DEPRECATED: Use 'options' instead. This field is maintained for backward compatibility
      * with version 3 configs and will be removed in a future version. See
@@ -360,6 +369,11 @@ export type TooltipListPromptElementsToDisplayBasedOnContext = {
      * https://ohmyposh.dev/docs/configuration/segment#options
      */
     options?: { [key: string]: any };
+    /**
+     * Text to display while the segment is loading in streaming mode. See
+     * https://ohmyposh.dev/docs/experimental/streaming
+     */
+    placeholder?: string;
     /**
      * DEPRECATED: Use 'options' instead. This field is maintained for backward compatibility
      * with version 3 configs and will be removed in a future version. See
@@ -617,6 +631,7 @@ const typeMap: any = {
         { json: "pwd", js: "pwd", typ: u(undefined, "") },
         { json: "secondary_prompt", js: "secondary_prompt", typ: u(undefined, r("ExtraPrompt")) },
         { json: "shell_integration", js: "shell_integration", typ: u(undefined, true) },
+        { json: "streaming", js: "streaming", typ: u(undefined, 0) },
         { json: "terminal_background", js: "terminal_background", typ: u(undefined, "") },
         { json: "tooltips", js: "tooltips", typ: u(undefined, a(r("TooltipListPromptElementsToDisplayBasedOnContext"))) },
         { json: "tooltips_action", js: "tooltips_action", typ: u(undefined, r("TooltipsAction")) },
@@ -651,6 +666,7 @@ const typeMap: any = {
         { json: "max_width", js: "max_width", typ: u(undefined, 0) },
         { json: "min_width", js: "min_width", typ: u(undefined, 0) },
         { json: "options", js: "options", typ: u(undefined, m("any")) },
+        { json: "placeholder", js: "placeholder", typ: u(undefined, "") },
         { json: "properties", js: "properties", typ: u(undefined, m("any")) },
         { json: "style", js: "style", typ: "" },
         { json: "template", js: "template", typ: u(undefined, "") },
@@ -689,6 +705,7 @@ const typeMap: any = {
         { json: "max_width", js: "max_width", typ: u(undefined, 0) },
         { json: "min_width", js: "min_width", typ: u(undefined, 0) },
         { json: "options", js: "options", typ: u(undefined, m("any")) },
+        { json: "placeholder", js: "placeholder", typ: u(undefined, "") },
         { json: "properties", js: "properties", typ: u(undefined, m("any")) },
         { json: "style", js: "style", typ: "" },
         { json: "template", js: "template", typ: u(undefined, "") },
