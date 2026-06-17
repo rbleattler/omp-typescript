@@ -708,6 +708,12 @@
                     "title": "Display Default User Profile",
                     "description": "Display the segment when default user or not",
                     "default": true
+                  },
+                  "display_access_key_id": {
+                    "type": "boolean",
+                    "title": "Display Access Key ID",
+                    "description": "Populate .AccessKeyID from AWS_ACCESS_KEY_ID, the AWS credentials file, or the AWS config file",
+                    "default": false
                   }
                 },
                 "unevaluatedProperties": false
@@ -4244,6 +4250,12 @@
                     "title": "Stopped Icon",
                     "description": "Text/icon to show when stopped",
                     "default": " "
+                  },
+                  "ad_icon": {
+                    "type": "string",
+                    "title": "Advertisement Icon",
+                    "description": "Text/icon to show when an advertisement is playing (Windows/WSL)",
+                    "default": " "
                   }
                 },
                 "unevaluatedProperties": false
