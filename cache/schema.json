@@ -367,6 +367,7 @@
           "enum": [
             "angular",
             "argocd",
+            "aspire",
             "aurelia",
             "aws",
             "az",
@@ -402,6 +403,7 @@
             "git",
             "gitversion",
             "go",
+            "gradle",
             "haskell",
             "helm",
             "http",
@@ -466,6 +468,7 @@
             "upgrade",
             "v",
             "vala",
+            "vimode",
             "wakatime",
             "winget",
             "winreg",
@@ -473,7 +476,8 @@
             "xmake",
             "yarn",
             "ytm",
-            "zig"
+            "zig",
+            "zvm"
           ]
         },
         "style": {
@@ -653,6 +657,32 @@
           "then": {
             "title": "ArgoCD Segment",
             "description": "https://ohmyposh.dev/docs/segments/cli/argocd"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "aspire"
+              }
+            }
+          },
+          "then": {
+            "title": "Aspire Segment",
+            "description": "https://ohmyposh.dev/docs/segments/cli/aspire",
+            "properties": {
+              "options": {
+                "properties": {
+                  "fetch_running": {
+                    "type": "boolean",
+                    "title": "Fetch Running",
+                    "description": "Query aspire ps to determine whether the resolved AppHost is running",
+                    "default": true
+                  }
+                },
+                "unevaluatedProperties": false
+              }
+            }
           }
         },
         {
@@ -2154,6 +2184,41 @@
                     "default": [
                       "mod",
                       "go"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "gradle"
+              }
+            }
+          },
+          "then": {
+            "title": "Gradle Segment",
+            "description": "https://ohmyposh.dev/docs/segments/cli/gradle",
+            "properties": {
+              "options": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/language_options"
+                  }
+                ],
+                "properties": {
+                  "extensions": {
+                    "default": [
+                      "*.gradle",
+                      "*.gradle.kts"
+                    ]
+                  },
+                  "tooling": {
+                    "default": [
+                      "gradle"
                     ]
                   }
                 }
@@ -4848,6 +4913,19 @@
           "if": {
             "properties": {
               "type": {
+                "const": "vimode"
+              }
+            }
+          },
+          "then": {
+            "title": "Vi mode",
+            "description": "https://ohmyposh.dev/docs/segments/system/vimode"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
                 "const": "wakatime"
               }
             }
@@ -5095,6 +5173,31 @@
                     "default": [
                       "zig"
                     ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "zvm"
+              }
+            }
+          },
+          "then": {
+            "title": "ZVM Segment",
+            "description": "https://ohmyposh.dev/docs/segments/cli/zvm",
+            "properties": {
+              "options": {
+                "properties": {
+                  "zigicon": {
+                    "type": "string",
+                    "title": "Zig Icon",
+                    "description": "icon to display before the version",
+                    "default": "ZVM"
                   }
                 }
               }
