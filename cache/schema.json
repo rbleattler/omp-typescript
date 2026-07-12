@@ -428,6 +428,7 @@
             "npm",
             "nx",
             "ocaml",
+            "orthodoxcal",
             "os",
             "owm",
             "path",
@@ -610,6 +611,12 @@
           "title": "Placeholder text",
           "description": "Text to display while the segment is loading in streaming mode. See https://ohmyposh.dev/docs/experimental/streaming",
           "default": "..."
+        },
+        "fallback_template": {
+          "type": "string",
+          "title": "Fallback template text",
+          "description": "https://ohmyposh.dev/docs/configuration/templates",
+          "default": ""
         }
       },
       "allOf": [
@@ -3463,6 +3470,39 @@
           "if": {
             "properties": {
               "type": {
+                "const": "orthodoxcal"
+              }
+            }
+          },
+          "then": {
+            "title": "Orthodox Calendar Segment",
+            "description": "https://ohmyposh.dev/docs/segments/health/orthodoxcal",
+            "properties": {
+              "options": {
+                "properties": {
+                  "calendar": {
+                    "type": "string",
+                    "title": "Calendar Type",
+                    "description": "Calendar type: gregorian or julian",
+                    "enum": [
+                      "gregorian",
+                      "julian"
+                    ],
+                    "default": "gregorian"
+                  },
+                  "http_timeout": {
+                    "$ref": "#/definitions/http_timeout"
+                  }
+                },
+                "unevaluatedProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
                 "const": "owm"
               }
             }
@@ -5475,6 +5515,21 @@
           "current_dir",
           "remote_host"
         ]
+      }
+    },
+    "terminal_features": {
+      "type": "object",
+      "title": "Terminal features configuration",
+      "description": "https://ohmyposh.dev/docs/configuration/general#terminal-features",
+      "properties": {
+        "progress": {
+          "type": "array",
+          "title": "Progress terminals",
+          "description": "Terminal programs supporting OSC 9;4 progress sequences, matched case-insensitively against $TERM_PROGRAM. Defaults to Windows Terminal",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "var": {

@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2026-07-11T00:18:16.611Z
+ * Generated on: 2026-07-12T00:18:44.875Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -91,6 +91,10 @@ export type Config = {
      */
     streaming?:           number;
     terminal_background?: string;
+    /**
+     * https://ohmyposh.dev/docs/configuration/general#terminal-features
+     */
+    terminal_features?: TerminalFeaturesConfiguration;
     /**
      * https://ohmyposh.dev/docs/configuration/tooltips
      */
@@ -195,7 +199,11 @@ export type Segment = {
      * https://ohmyposh.dev/docs/configuration/segment#include--exclude-folders
      */
     exclude_folders?: string[];
-    foreground?:      string;
+    /**
+     * https://ohmyposh.dev/docs/configuration/templates
+     */
+    fallback_template?: string;
+    foreground?:        string;
     /**
      * https://ohmyposh.dev/docs/configuration/colors#color-templates
      */
@@ -275,7 +283,7 @@ export type TemplatesLogic = "first_match" | "join";
 /**
  * https://ohmyposh.dev/docs/configuration/segment
  */
-export type SegmentType = "angular" | "argocd" | "aspire" | "aurelia" | "aws" | "az" | "azd" | "azfunc" | "battery" | "bazel" | "brewfather" | "buf" | "bun" | "carbonintensity" | "cds" | "cf" | "cftarget" | "claude" | "clojure" | "cmake" | "copilot" | "copilot_cli" | "connection" | "crystal" | "dart" | "deno" | "docker" | "dotnet" | "dvc" | "elixir" | "executiontime" | "firebase" | "flutter" | "fortran" | "fossil" | "gcp" | "git" | "gitversion" | "go" | "gradle" | "haskell" | "helm" | "http" | "ipify" | "java" | "jujutsu" | "julia" | "kotlin" | "kubectl" | "lastfm" | "lua" | "mercurial" | "mojo" | "mvn" | "nba" | "nbgv" | "nightscout" | "nim" | "nix-shell" | "node" | "npm" | "nx" | "ocaml" | "os" | "owm" | "path" | "perl" | "php" | "plastic" | "pnpm" | "project" | "pulumi" | "python" | "quasar" | "r" | "ramadan" | "react" | "root" | "ruby" | "rust" | "sapling" | "session" | "shell" | "sitecore" | "spotify" | "status" | "strava" | "svelte" | "svn" | "swift" | "sysinfo" | "talosctl" | "taskwarrior" | "tauri" | "terraform" | "text" | "time" | "todoist" | "ui5tooling" | "umbraco" | "unity" | "upgrade" | "v" | "vala" | "vimode" | "wakatime" | "winget" | "winreg" | "withings" | "xmake" | "yarn" | "ytm" | "zig" | "zvm";
+export type SegmentType = "angular" | "argocd" | "aspire" | "aurelia" | "aws" | "az" | "azd" | "azfunc" | "battery" | "bazel" | "brewfather" | "buf" | "bun" | "carbonintensity" | "cds" | "cf" | "cftarget" | "claude" | "clojure" | "cmake" | "copilot" | "copilot_cli" | "connection" | "crystal" | "dart" | "deno" | "docker" | "dotnet" | "dvc" | "elixir" | "executiontime" | "firebase" | "flutter" | "fortran" | "fossil" | "gcp" | "git" | "gitversion" | "go" | "gradle" | "haskell" | "helm" | "http" | "ipify" | "java" | "jujutsu" | "julia" | "kotlin" | "kubectl" | "lastfm" | "lua" | "mercurial" | "mojo" | "mvn" | "nba" | "nbgv" | "nightscout" | "nim" | "nix-shell" | "node" | "npm" | "nx" | "ocaml" | "orthodoxcal" | "os" | "owm" | "path" | "perl" | "php" | "plastic" | "pnpm" | "project" | "pulumi" | "python" | "quasar" | "r" | "ramadan" | "react" | "root" | "ruby" | "rust" | "sapling" | "session" | "shell" | "sitecore" | "spotify" | "status" | "strava" | "svelte" | "svn" | "swift" | "sysinfo" | "talosctl" | "taskwarrior" | "tauri" | "terraform" | "text" | "time" | "todoist" | "ui5tooling" | "umbraco" | "unity" | "upgrade" | "v" | "vala" | "vimode" | "wakatime" | "winget" | "winreg" | "withings" | "xmake" | "yarn" | "ytm" | "zig" | "zvm";
 
 /**
  * https://ohmyposh.dev/docs/configuration/block#type
@@ -324,6 +332,18 @@ export type Palettes = {
 }
 
 /**
+ * https://ohmyposh.dev/docs/configuration/general#terminal-features
+ */
+export type TerminalFeaturesConfiguration = {
+    /**
+     * Terminal programs supporting OSC 9;4 progress sequences, matched case-insensitively
+     * against $TERM_PROGRAM. Defaults to Windows Terminal
+     */
+    progress?: string[];
+    [property: string]: any;
+}
+
+/**
  * https://ohmyposh.dev/docs/configuration/segment
  */
 export type TooltipListPromptElementsToDisplayBasedOnContext = {
@@ -344,7 +364,11 @@ export type TooltipListPromptElementsToDisplayBasedOnContext = {
      * https://ohmyposh.dev/docs/configuration/segment#include--exclude-folders
      */
     exclude_folders?: string[];
-    foreground?:      string;
+    /**
+     * https://ohmyposh.dev/docs/configuration/templates
+     */
+    fallback_template?: string;
+    foreground?:        string;
     /**
      * https://ohmyposh.dev/docs/configuration/colors#color-templates
      */
@@ -633,6 +657,7 @@ const typeMap: any = {
         { json: "shell_integration", js: "shell_integration", typ: u(undefined, true) },
         { json: "streaming", js: "streaming", typ: u(undefined, 0) },
         { json: "terminal_background", js: "terminal_background", typ: u(undefined, "") },
+        { json: "terminal_features", js: "terminal_features", typ: u(undefined, r("TerminalFeaturesConfiguration")) },
         { json: "tooltips", js: "tooltips", typ: u(undefined, a(r("TooltipListPromptElementsToDisplayBasedOnContext"))) },
         { json: "tooltips_action", js: "tooltips_action", typ: u(undefined, r("TooltipsAction")) },
         { json: "transient_prompt", js: "transient_prompt", typ: u(undefined, r("TransientPromptSetting")) },
@@ -659,6 +684,7 @@ const typeMap: any = {
         { json: "background_templates", js: "background_templates", typ: u(undefined, a("")) },
         { json: "cache", js: "cache", typ: u(undefined, r("CacheSettings")) },
         { json: "exclude_folders", js: "exclude_folders", typ: u(undefined, a("")) },
+        { json: "fallback_template", js: "fallback_template", typ: u(undefined, "") },
         { json: "foreground", js: "foreground", typ: u(undefined, "") },
         { json: "foreground_templates", js: "foreground_templates", typ: u(undefined, a("")) },
         { json: "include_folders", js: "include_folders", typ: u(undefined, a("")) },
@@ -692,12 +718,16 @@ const typeMap: any = {
         { json: "list", js: "list", typ: u(undefined, m(m(""))) },
         { json: "template", js: "template", typ: u(undefined, "") },
     ], "any"),
+    "TerminalFeaturesConfiguration": o([
+        { json: "progress", js: "progress", typ: u(undefined, a("")) },
+    ], "any"),
     "TooltipListPromptElementsToDisplayBasedOnContext": o([
         { json: "alias", js: "alias", typ: u(undefined, "") },
         { json: "background", js: "background", typ: u(undefined, "") },
         { json: "background_templates", js: "background_templates", typ: u(undefined, a("")) },
         { json: "cache", js: "cache", typ: u(undefined, r("CacheSettings")) },
         { json: "exclude_folders", js: "exclude_folders", typ: u(undefined, a("")) },
+        { json: "fallback_template", js: "fallback_template", typ: u(undefined, "") },
         { json: "foreground", js: "foreground", typ: u(undefined, "") },
         { json: "foreground_templates", js: "foreground_templates", typ: u(undefined, a("")) },
         { json: "include_folders", js: "include_folders", typ: u(undefined, a("")) },
@@ -805,6 +835,7 @@ const typeMap: any = {
         "npm",
         "nx",
         "ocaml",
+        "orthodoxcal",
         "os",
         "owm",
         "path",
