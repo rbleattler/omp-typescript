@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2026-07-12T00:18:44.875Z
+ * Generated on: 2026-07-14T00:17:18.339Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -453,8 +453,13 @@ export type TransientPromptSetting = {
     /**
      * Add a newline before the prompt
      */
-    newline?:  boolean;
-    template?: string;
+    newline?: boolean;
+    /**
+     * The right-aligned template to render next to the transient prompt, supported in zsh and
+     * PowerShell only
+     */
+    right_template?: string;
+    template?:       string;
     [property: string]: any;
 }
 
@@ -750,6 +755,7 @@ const typeMap: any = {
         { json: "foreground", js: "foreground", typ: u(undefined, "") },
         { json: "foreground_templates", js: "foreground_templates", typ: u(undefined, a("")) },
         { json: "newline", js: "newline", typ: u(undefined, true) },
+        { json: "right_template", js: "right_template", typ: u(undefined, "") },
         { json: "template", js: "template", typ: u(undefined, "") },
     ], "any"),
     "EnableUpgradeNotice": o([
