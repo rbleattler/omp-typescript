@@ -28,6 +28,19 @@
       "title": "Palette reference",
       "description": "https://ohmyposh.dev/docs/configuration/colors#palette"
     },
+    "palette_color": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/color"
+        },
+        {
+          "type": "string",
+          "pattern": "\\{\\{.*\\}\\}",
+          "title": "Color template",
+          "description": "https://ohmyposh.dev/docs/configuration/colors#palette"
+        }
+      ]
+    },
     "templates": {
       "type": "array",
       "title": "An array of templates",
@@ -344,6 +357,12 @@
           "description": "https://ohmyposh.dev/docs/configuration/block#force",
           "default": false
         },
+        "restart_cycle": {
+          "type": "boolean",
+          "title": "Restart cycle",
+          "description": "https://ohmyposh.dev/docs/configuration/block#restart-cycle",
+          "default": false
+        },
         "index": {
           "type": "integer",
           "title": "Index",
@@ -466,6 +485,7 @@
             "todoist",
             "ui5tooling",
             "umbraco",
+            "uno",
             "unity",
             "upgrade",
             "v",
@@ -3621,6 +3641,12 @@
                     "description": "Replace known locations in the path with the replacements before applying the style.",
                     "default": true
                   },
+                  "mapped_locations_regex_expand": {
+                    "type": "boolean",
+                    "title": "Expand regex capture groups in Mapped Locations",
+                    "description": "When a mapped_locations key uses the re: prefix, expand $1, ${name}, etc. in the replacement value using the full regex match instead of only substituting the first capture group.",
+                    "default": false
+                  },
                   "max_depth": {
                     "type": "integer",
                     "title": "Maximum Depth",
@@ -3937,6 +3963,15 @@
                     "title": "Always Enabled",
                     "description": "Always show the segment",
                     "default": false
+                  },
+                  "priority": {
+                    "type": "array",
+                    "title": "Priority",
+                    "description": "Reorder the project types to check first, using the .Type values (e.g. node, php, cargo)",
+                    "default": [],
+                    "items": {
+                      "type": "string"
+                    }
                   },
                   "resolve_target_from_solution": {
                     "type": "boolean",
@@ -4891,6 +4926,19 @@
           "if": {
             "properties": {
               "type": {
+                "const": "uno"
+              }
+            }
+          },
+          "then": {
+            "title": "Uno Platform Segment",
+            "description": "https://ohmyposh.dev/docs/segments/cli/uno"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
                 "const": "unity"
               }
             }
@@ -5449,9 +5497,23 @@
       "description": "https://ohmyposh.dev/docs/configuration/line-error"
     },
     "secondary_prompt": {
-      "$ref": "#/definitions/extra_prompt",
       "title": "Secondary Prompt Setting",
-      "description": "https://ohmyposh.dev/docs/configuration/secondary-prompt"
+      "description": "https://ohmyposh.dev/docs/configuration/secondary-prompt",
+      "allOf": [
+        {
+          "$ref": "#/definitions/extra_prompt"
+        },
+        {
+          "properties": {
+            "multiline_keepprompt": {
+              "type": "boolean",
+              "title": "Multiline Keep Prompt",
+              "description": "Treat multi-line commands as a single block to support transient prompts correctly",
+              "default": false
+            }
+          }
+        }
+      ]
     },
     "debug_prompt": {
       "$ref": "#/definitions/extra_prompt",
@@ -5465,7 +5527,7 @@
       "default": {},
       "patternProperties": {
         ".*": {
-          "$ref": "#/definitions/color"
+          "$ref": "#/definitions/palette_color"
         }
       }
     },

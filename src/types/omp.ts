@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2026-07-15T00:15:48.481Z
+ * Generated on: 2026-07-16T00:18:10.883Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -84,7 +84,7 @@ export type Config = {
     /**
      * https://ohmyposh.dev/docs/configuration/secondary-prompt
      */
-    secondary_prompt?:  ExtraPrompt;
+    secondary_prompt?:  SecondaryPromptSetting;
     shell_integration?: boolean;
     /**
      * https://ohmyposh.dev/docs/experimental/streaming
@@ -158,6 +158,10 @@ export type Block = {
      * https://ohmyposh.dev/docs/configuration/block#overflow
      */
     overflow?: string;
+    /**
+     * https://ohmyposh.dev/docs/configuration/block#restart-cycle
+     */
+    restart_cycle?: boolean;
     /**
      * https://ohmyposh.dev/docs/configuration/block#segments
      */
@@ -283,7 +287,7 @@ export type TemplatesLogic = "first_match" | "join";
 /**
  * https://ohmyposh.dev/docs/configuration/segment
  */
-export type SegmentType = "angular" | "argocd" | "aspire" | "aurelia" | "aws" | "az" | "azd" | "azfunc" | "battery" | "bazel" | "brewfather" | "buf" | "bun" | "carbonintensity" | "cds" | "cf" | "cftarget" | "claude" | "clojure" | "cmake" | "copilot" | "copilot_cli" | "connection" | "crystal" | "dart" | "deno" | "docker" | "dotnet" | "dvc" | "elixir" | "executiontime" | "firebase" | "flutter" | "fortran" | "fossil" | "gcp" | "git" | "gitversion" | "go" | "gradle" | "haskell" | "helm" | "http" | "ipify" | "java" | "jujutsu" | "julia" | "kotlin" | "kubectl" | "lastfm" | "lua" | "mercurial" | "mojo" | "mvn" | "nba" | "nbgv" | "nightscout" | "nim" | "nix-shell" | "node" | "npm" | "nx" | "ocaml" | "orthodoxcal" | "os" | "owm" | "path" | "perl" | "php" | "plastic" | "pnpm" | "project" | "pulumi" | "python" | "quasar" | "r" | "ramadan" | "react" | "root" | "ruby" | "rust" | "sapling" | "session" | "shell" | "sitecore" | "spotify" | "status" | "strava" | "svelte" | "svn" | "swift" | "sysinfo" | "talosctl" | "taskwarrior" | "tauri" | "terraform" | "text" | "time" | "todoist" | "ui5tooling" | "umbraco" | "unity" | "upgrade" | "v" | "vala" | "vimode" | "wakatime" | "winget" | "winreg" | "withings" | "xmake" | "yarn" | "ytm" | "zig" | "zvm";
+export type SegmentType = "angular" | "argocd" | "aspire" | "aurelia" | "aws" | "az" | "azd" | "azfunc" | "battery" | "bazel" | "brewfather" | "buf" | "bun" | "carbonintensity" | "cds" | "cf" | "cftarget" | "claude" | "clojure" | "cmake" | "copilot" | "copilot_cli" | "connection" | "crystal" | "dart" | "deno" | "docker" | "dotnet" | "dvc" | "elixir" | "executiontime" | "firebase" | "flutter" | "fortran" | "fossil" | "gcp" | "git" | "gitversion" | "go" | "gradle" | "haskell" | "helm" | "http" | "ipify" | "java" | "jujutsu" | "julia" | "kotlin" | "kubectl" | "lastfm" | "lua" | "mercurial" | "mojo" | "mvn" | "nba" | "nbgv" | "nightscout" | "nim" | "nix-shell" | "node" | "npm" | "nx" | "ocaml" | "orthodoxcal" | "os" | "owm" | "path" | "perl" | "php" | "plastic" | "pnpm" | "project" | "pulumi" | "python" | "quasar" | "r" | "ramadan" | "react" | "root" | "ruby" | "rust" | "sapling" | "session" | "shell" | "sitecore" | "spotify" | "status" | "strava" | "svelte" | "svn" | "swift" | "sysinfo" | "talosctl" | "taskwarrior" | "tauri" | "terraform" | "text" | "time" | "todoist" | "ui5tooling" | "umbraco" | "uno" | "unity" | "upgrade" | "v" | "vala" | "vimode" | "wakatime" | "winget" | "winreg" | "withings" | "xmake" | "yarn" | "ytm" | "zig" | "zvm";
 
 /**
  * https://ohmyposh.dev/docs/configuration/block#type
@@ -302,8 +306,6 @@ export type CycleObject = {
  * https://ohmyposh.dev/docs/configuration/debug-prompt
  *
  * https://ohmyposh.dev/docs/configuration/line-error
- *
- * https://ohmyposh.dev/docs/configuration/secondary-prompt
  */
 export type ExtraPrompt = {
     background?: string;
@@ -328,6 +330,32 @@ export type TheITerm2FeaturesToEnable = "prompt_mark" | "current_dir" | "remote_
 export type Palettes = {
     list?:     { [key: string]: { [key: string]: string } };
     template?: string;
+    [property: string]: any;
+}
+
+/**
+ * https://ohmyposh.dev/docs/configuration/secondary-prompt
+ *
+ * https://ohmyposh.dev/docs/configuration/debug-prompt
+ *
+ * https://ohmyposh.dev/docs/configuration/line-error
+ */
+export type SecondaryPromptSetting = {
+    background?: string;
+    /**
+     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     */
+    background_templates?: string[];
+    foreground?:           string;
+    /**
+     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     */
+    foreground_templates?: string[];
+    /**
+     * Treat multi-line commands as a single block to support transient prompts correctly
+     */
+    multiline_keepprompt?: boolean;
+    template?:             string;
     [property: string]: any;
 }
 
@@ -435,8 +463,6 @@ export type TooltipsAction = "replace" | "extend" | "prepend";
  * https://ohmyposh.dev/docs/configuration/debug-prompt
  *
  * https://ohmyposh.dev/docs/configuration/line-error
- *
- * https://ohmyposh.dev/docs/configuration/secondary-prompt
  */
 export type TransientPromptSetting = {
     background?: string;
@@ -658,7 +684,7 @@ const typeMap: any = {
         { json: "palettes", js: "palettes", typ: u(undefined, r("Palettes")) },
         { json: "patch_pwsh_bleed", js: "patch_pwsh_bleed", typ: u(undefined, true) },
         { json: "pwd", js: "pwd", typ: u(undefined, "") },
-        { json: "secondary_prompt", js: "secondary_prompt", typ: u(undefined, r("ExtraPrompt")) },
+        { json: "secondary_prompt", js: "secondary_prompt", typ: u(undefined, r("SecondaryPromptSetting")) },
         { json: "shell_integration", js: "shell_integration", typ: u(undefined, true) },
         { json: "streaming", js: "streaming", typ: u(undefined, 0) },
         { json: "terminal_background", js: "terminal_background", typ: u(undefined, "") },
@@ -679,6 +705,7 @@ const typeMap: any = {
         { json: "leading_diamond", js: "leading_diamond", typ: u(undefined, "") },
         { json: "newline", js: "newline", typ: u(undefined, true) },
         { json: "overflow", js: "overflow", typ: u(undefined, "") },
+        { json: "restart_cycle", js: "restart_cycle", typ: u(undefined, true) },
         { json: "segments", js: "segments", typ: u(undefined, a(r("Segment"))) },
         { json: "trailing_diamond", js: "trailing_diamond", typ: u(undefined, "") },
         { json: "type", js: "type", typ: u(undefined, r("BlockType")) },
@@ -721,6 +748,14 @@ const typeMap: any = {
     ], "any"),
     "Palettes": o([
         { json: "list", js: "list", typ: u(undefined, m(m(""))) },
+        { json: "template", js: "template", typ: u(undefined, "") },
+    ], "any"),
+    "SecondaryPromptSetting": o([
+        { json: "background", js: "background", typ: u(undefined, "") },
+        { json: "background_templates", js: "background_templates", typ: u(undefined, a("")) },
+        { json: "foreground", js: "foreground", typ: u(undefined, "") },
+        { json: "foreground_templates", js: "foreground_templates", typ: u(undefined, a("")) },
+        { json: "multiline_keepprompt", js: "multiline_keepprompt", typ: u(undefined, true) },
         { json: "template", js: "template", typ: u(undefined, "") },
     ], "any"),
     "TerminalFeaturesConfiguration": o([
@@ -880,6 +915,7 @@ const typeMap: any = {
         "ui5tooling",
         "umbraco",
         "unity",
+        "uno",
         "upgrade",
         "v",
         "vala",
