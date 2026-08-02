@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2026-08-01T00:19:04.877Z
+ * Generated on: 2026-08-02T00:20:37.216Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -23,274 +23,312 @@
 // match the expected interface, even if the JSON is valid.
 
 /**
- * https://ohmyposh.dev/docs/configuration/general
+ * A theme file defines the prompt layout, palette, blocks, and segments Oh My Posh renders
+ * in a shell.
  */
 export type Config = {
     accent_color?: string;
-    async?:        boolean;
     /**
-     * https://ohmyposh.dev/docs/configuration/general#blocks
+     * Render segments as their data becomes available instead of waiting for every segment to
+     * finish, so the prompt appears faster while slow segments (e.g. network- or git-heavy
+     * ones) update in place once ready.
+     */
+    async?: boolean;
+    /**
+     * A list of blocks that define the prompt layout and the segments each block renders.
      */
     blocks: Block[];
     /**
-     * https://ohmyposh.dev/docs/configuration/title#console-title-template
+     * Template used to render the terminal's window title.
      */
     console_title_template?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#cycle
+     * A list of foreground and background colors to rotate through as segments render.
      */
     cycle?: CycleElement[];
     /**
-     * https://ohmyposh.dev/docs/configuration/debug-prompt
+     * Configure the prompt shown while debugging a PowerShell script.
      */
     debug_prompt?: ExtraPrompt;
     /**
-     * https://ohmyposh.dev/docs/configuration/general#general-settings
+     * Fetch the cursor position so the prompt can avoid leaving a leading blank line at the top
+     * of the terminal.
      */
     enable_cursor_positioning?: boolean;
     /**
-     * https://ohmyposh.dev/docs/configuration/line-error
+     * Render a custom prompt when the current PowerShell input line contains an error.
      */
     error_line?: ExtraPrompt;
     /**
-     * https://ohmyposh.dev/docs/configuration/general#extends
+     * Path to another configuration file to inherit from.
      */
     extends?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/general#general-settings
+     * Add a trailing space to the end of the prompt.
      */
-    final_space?:    boolean;
+    final_space?: boolean;
+    /**
+     * iTerm2-specific shell integration features to enable. "prompt_mark" marks the prompt line
+     * so iTerm2 can jump between commands, "current_dir" reports the working directory for the
+     * title bar and new tabs/panes, and "remote_host" reports the hostname/username for badges
+     * and session restore.
+     */
     iterm_features?: TheITerm2FeaturesToEnable[];
     /**
-     * https://ohmyposh.dev/docs/configuration/general#maps
+     * Custom replacements for user, host, and shell names used in templates.
      */
     maps?: { [key: string]: any };
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#palette
+     * A map of named colors that can be reused throughout the theme.
      */
     palette?: { [key: string]: string };
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#palettes
+     * A set of alternate palettes that can be selected dynamically at runtime.
      */
     palettes?: Palettes;
     /**
-     * https://ohmyposh.dev/docs/configuration/general#general-settings
+     * Work around a PowerShell color-bleed issue that can leave stray background colors at the
+     * end of the buffer.
      */
     patch_pwsh_bleed?: boolean;
     /**
-     * https://ohmyposh.dev/docs/configuration/general#general-settings
+     * Report the current working directory to the terminal using OSC 99, 7, or 51 sequences.
      */
     pwd?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/secondary-prompt
+     * Configure the prompt shown for multi-line commands.
      */
-    secondary_prompt?:  SecondaryPromptSetting;
+    secondary_prompt?: SecondaryPromptSetting;
+    /**
+     * Wrap the prompt and command output in FTCS (Final Term Control Sequences) markers so
+     * supported terminals can identify command boundaries, enabling features like command
+     * status in the scrollbar and jump-to-previous-command.
+     */
     shell_integration?: boolean;
     /**
-     * https://ohmyposh.dev/docs/experimental/streaming
+     * Enable streaming mode with a timeout in milliseconds for segments that are still
+     * resolving.
      */
     streaming?:           number;
     terminal_background?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/general#terminal-features
+     * Map terminal features to the terminals that support them.
      */
     terminal_features?: TerminalFeaturesConfiguration;
     /**
-     * https://ohmyposh.dev/docs/configuration/tooltips
+     * A list of tooltip segments that appear when you type matching commands.
      */
     tooltips?: TooltipListPromptElementsToDisplayBasedOnContext[];
     /**
-     * https://ohmyposh.dev/docs/configuration/tooltips#tooltips-action
+     * Choose whether tooltips replace, extend, or prepend the current right prompt.
      */
     tooltips_action?: TooltipsAction;
     /**
-     * https://ohmyposh.dev/docs/configuration/transient
+     * Configure the prompt that replaces the primary prompt after a command is executed.
      */
     transient_prompt?: TransientPromptSetting;
     /**
-     * https://ohmyposh.dev/docs/configuration/general#general-settings
+     * Enable the upgrade notice or automatic updates for Oh My Posh.
      */
     upgrade?: EnableUpgradeNotice;
     /**
-     * https://ohmyposh.dev/docs/configuration/line-error
+     * Render a custom prompt when the current PowerShell input line is valid.
      */
     valid_line?: ExtraPrompt;
     /**
-     * https://ohmyposh.dev/docs/configuration/templates#config-variables
+     * Custom variables that can be referenced from templates.
      */
     var?: { [key: string]: any };
     /**
-     * https://ohmyposh.dev/docs/configuration/general
+     * The schema version for the configuration file.
      */
     version?: number;
     [property: string]: any;
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/block
+ * A horizontal section of the prompt that groups one or more segments together on a single
+ * line.
  */
 export type Block = {
     /**
-     * https://ohmyposh.dev/docs/configuration/block#alignment
+     * Whether the block is aligned to the left or right edge of the terminal.
      */
     alignment?: BlockAlignment;
     /**
-     * https://ohmyposh.dev/docs/configuration/block#filler
+     * The character(s) repeated to fill the gap between a left-aligned and right-aligned block.
      */
     filler?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/block#force
+     * Always render the block, even when every one of its segments is empty.
      */
     force?: boolean;
     /**
-     * https://ohmyposh.dev/docs/configuration/block#index
+     * The position of this block in the configuration, used to target it when overriding a
+     * specific block in a base configuration.
      */
     index?: number;
     /**
-     * https://ohmyposh.dev/docs/configuration/block#leading-diamond
+     * The character used to start the first segment of the block when you want it to always
+     * begin with a diamond shape.
      */
     leading_diamond?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/block#newline
+     * Start the block on a new line before rendering its segments.
      */
     newline?: boolean;
     /**
-     * https://ohmyposh.dev/docs/configuration/block#overflow
+     * How to handle this block when it no longer fits the terminal width: break moves it to a
+     * new line, hide removes it.
      */
     overflow?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/block#restart-cycle
+     * Restart the shared color cycle from its first color at the start of this block instead of
+     * continuing where the previous block left off.
      */
     restart_cycle?: boolean;
     /**
-     * https://ohmyposh.dev/docs/configuration/block#segments
+     * The list of segments rendered in this block, in order.
      */
     segments?: Segment[];
     /**
-     * https://ohmyposh.dev/docs/configuration/block#trailing-diamond
+     * The character used to end the last segment of the block when you want it to always finish
+     * with a diamond shape.
      */
     trailing_diamond?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/block#type
+     * Whether this block renders as the main prompt or the right-aligned prompt (rprompt).
      */
     type?: BlockType;
     [property: string]: any;
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/block#alignment
+ * Whether the block is aligned to the left or right edge of the terminal.
  */
 export type BlockAlignment = "left" | "right";
 
 /**
- * https://ohmyposh.dev/docs/configuration/segment
+ * A single element of the prompt, such as the current path, git status, or a language
+ * version.
  */
 export type Segment = {
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * A name for this segment so its data can be referenced from other segments' templates.
      */
     alias?:      string;
     background?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the background color.
      */
     background_templates?: string[];
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#cache
+     * Controls how long the segment's rendered output is reused before it's refreshed again,
+     * useful when the segment is slow to compute.
      */
     cache?: CacheSettings;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#include--exclude-folders
+     * Never render the segment while the current path is inside one of these folders.
      */
     exclude_folders?: string[];
     /**
-     * https://ohmyposh.dev/docs/configuration/templates
+     * A template rendered instead of hiding the segment when it has no data to show. Since the
+     * segment isn't fully loaded at that point, stick to static text and global template
+     * variables here. Leave empty to hide the segment as usual.
      */
     fallback_template?: string;
     foreground?:        string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the foreground color.
      */
     foreground_templates?: string[];
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#include--exclude-folders
+     * Only render the segment when the current path is inside one of these folders.
      */
     include_folders?: string[];
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * Stop escaping the segment's text so Bash/Zsh interactive prompt escape sequences inside
+     * it are interpreted rather than shown literally.
      */
     interactive?: boolean;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * Hide the segment once the terminal width goes above this value. Set to 0 to disable.
      */
     max_width?: number;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * Hide the segment while the terminal width stays below this value. Set to 0 to disable.
      */
     min_width?: number;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#options
+     * Segment-specific settings that customize its behavior and appearance beyond the shared
+     * segment properties.
      */
     options?: { [key: string]: any };
     /**
-     * Text to display while the segment is loading in streaming mode. See
-     * https://ohmyposh.dev/docs/experimental/streaming
+     * The text to display while the segment is loading in streaming mode.
      */
     placeholder?: string;
     /**
-     * DEPRECATED: Use 'options' instead. This field is maintained for backward compatibility
-     * with version 3 configs and will be removed in a future version. See
-     * https://ohmyposh.dev/docs/configuration/segment#options
+     * Deprecated: use options instead. This field only exists for backward compatibility with
+     * version 3 configs and will be removed in a future version.
      */
     properties?: { [key: string]: any };
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#style
+     * How the segment is rendered relative to its neighbors: powerline, plain, diamond, or
+     * accordion.
      */
     style: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/templates
+     * A Go text/template string used to render the segment's text.
      */
     template?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * How multiple templates are combined: first_match keeps only the first non-empty result,
+     * join combines every non-empty result.
      */
     templates_logic?: TemplatesLogic;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * The segment type, which determines what information is displayed and which options are
+     * available.
      */
     type: SegmentType;
     [property: string]: any;
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/segment#cache
+ * Controls how long the segment's rendered output is reused before it's refreshed again,
+ * useful when the segment is slow to compute.
  */
 export type CacheSettings = {
     duration?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#strategy
+     * Choose how cache entries are matched, such as by folder, shell session, or device.
      */
     strategy?: CacheStrategy;
     [property: string]: any;
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/segment#strategy
+ * Choose how cache entries are matched, such as by folder, shell session, or device.
  */
 export type CacheStrategy = "folder" | "session" | "device";
 
 /**
- * https://ohmyposh.dev/docs/configuration/segment
+ * How multiple templates are combined: first_match keeps only the first non-empty result,
+ * join combines every non-empty result.
  */
 export type TemplatesLogic = "first_match" | "join";
 
 /**
- * https://ohmyposh.dev/docs/configuration/segment
+ * The segment type, which determines what information is displayed and which options are
+ * available.
  */
 export type SegmentType = "angular" | "argocd" | "aspire" | "aurelia" | "aws" | "az" | "azd" | "azfunc" | "battery" | "bazel" | "brewfather" | "buf" | "bun" | "carbonintensity" | "cds" | "cf" | "cftarget" | "claude" | "clojure" | "cmake" | "copilot" | "copilot_cli" | "connection" | "crystal" | "dart" | "deno" | "docker" | "dotnet" | "dvc" | "elixir" | "executiontime" | "firebase" | "flutter" | "fortran" | "fossil" | "gcp" | "git" | "gitversion" | "go" | "gradle" | "haskell" | "helm" | "http" | "ipify" | "java" | "jujutsu" | "julia" | "kotlin" | "kubectl" | "lastfm" | "lua" | "mercurial" | "mojo" | "mvn" | "nba" | "nbgv" | "nightscout" | "nim" | "nix-shell" | "node" | "npm" | "nx" | "ocaml" | "orthodoxcal" | "os" | "owm" | "path" | "perl" | "php" | "plastic" | "pnpm" | "project" | "pulumi" | "python" | "quasar" | "r" | "ramadan" | "react" | "root" | "ruby" | "rust" | "sapling" | "session" | "shell" | "sitecore" | "spotify" | "status" | "strava" | "svelte" | "svn" | "swift" | "sysinfo" | "talosctl" | "taskwarrior" | "tauri" | "terraform" | "text" | "time" | "todoist" | "ui5tooling" | "umbraco" | "uno" | "unity" | "upgrade" | "v" | "vala" | "vimode" | "wakatime" | "winget" | "winreg" | "withings" | "xmake" | "yarn" | "ytm" | "zig" | "zvm";
 
 /**
- * https://ohmyposh.dev/docs/configuration/block#type
+ * Whether this block renders as the main prompt or the right-aligned prompt (rprompt).
  */
 export type BlockType = "prompt" | "rprompt";
 
@@ -303,203 +341,259 @@ export type CycleObject = {
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/debug-prompt
+ * Configure the prompt shown while debugging a PowerShell script.
  *
- * https://ohmyposh.dev/docs/configuration/line-error
+ * Render a custom prompt when the current PowerShell input line contains an error.
+ *
+ * Render a custom prompt when the current PowerShell input line is valid.
  */
 export type ExtraPrompt = {
     background?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the background color.
      */
     background_templates?: string[];
     foreground?:           string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the foreground color.
      */
     foreground_templates?: string[];
-    template?:             string;
+    /**
+     * The template used to render this prompt segment; supports the same Go template syntax and
+     * functions as regular segment templates.
+     */
+    template?: string;
     [property: string]: any;
 }
 
 export type TheITerm2FeaturesToEnable = "prompt_mark" | "current_dir" | "remote_host";
 
 /**
- * https://ohmyposh.dev/docs/configuration/colors#palettes
+ * A set of alternate palettes that can be selected dynamically at runtime.
  */
 export type Palettes = {
-    list?:     { [key: string]: { [key: string]: string } };
+    /**
+     * A map of palette name to palette definition; each named palette can be activated at
+     * runtime via the "template" above.
+     */
+    list?: { [key: string]: { [key: string]: string } };
+    /**
+     * A template that resolves to the key of the palette (in "list") to activate; leave empty
+     * or unresolved to use the default palette.
+     */
     template?: string;
     [property: string]: any;
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/secondary-prompt
+ * Configure the prompt shown for multi-line commands.
  *
- * https://ohmyposh.dev/docs/configuration/debug-prompt
+ * Configure the prompt shown while debugging a PowerShell script.
  *
- * https://ohmyposh.dev/docs/configuration/line-error
+ * Render a custom prompt when the current PowerShell input line contains an error.
+ *
+ * Render a custom prompt when the current PowerShell input line is valid.
  */
 export type SecondaryPromptSetting = {
     background?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the background color.
      */
     background_templates?: string[];
     foreground?:           string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the foreground color.
      */
     foreground_templates?: string[];
     /**
-     * Treat multi-line commands as a single block to support transient prompts correctly
+     * Treat multi-line commands as a single block to support transient prompts correctly.
      */
     multiline_keepprompt?: boolean;
-    template?:             string;
+    /**
+     * The template used to render this prompt segment; supports the same Go template syntax and
+     * functions as regular segment templates.
+     */
+    template?: string;
     [property: string]: any;
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/general#terminal-features
+ * Map terminal features to the terminals that support them.
  */
 export type TerminalFeaturesConfiguration = {
     /**
      * Terminal programs supporting OSC 9;4 progress sequences, matched case-insensitively
-     * against $TERM_PROGRAM. Defaults to Windows Terminal
+     * against $TERM_PROGRAM. Defaults to Windows Terminal.
      */
     progress?: string[];
     [property: string]: any;
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/segment
+ * A single element of the prompt, such as the current path, git status, or a language
+ * version.
  */
 export type TooltipListPromptElementsToDisplayBasedOnContext = {
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * A name for this segment so its data can be referenced from other segments' templates.
      */
     alias?:      string;
     background?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the background color.
      */
     background_templates?: string[];
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#cache
+     * Controls how long the segment's rendered output is reused before it's refreshed again,
+     * useful when the segment is slow to compute.
      */
     cache?: CacheSettings;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#include--exclude-folders
+     * Never render the segment while the current path is inside one of these folders.
      */
     exclude_folders?: string[];
     /**
-     * https://ohmyposh.dev/docs/configuration/templates
+     * A template rendered instead of hiding the segment when it has no data to show. Since the
+     * segment isn't fully loaded at that point, stick to static text and global template
+     * variables here. Leave empty to hide the segment as usual.
      */
     fallback_template?: string;
     foreground?:        string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the foreground color.
      */
     foreground_templates?: string[];
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#include--exclude-folders
+     * Only render the segment when the current path is inside one of these folders.
      */
     include_folders?: string[];
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * Stop escaping the segment's text so Bash/Zsh interactive prompt escape sequences inside
+     * it are interpreted rather than shown literally.
      */
     interactive?: boolean;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * Hide the segment once the terminal width goes above this value. Set to 0 to disable.
      */
     max_width?: number;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * Hide the segment while the terminal width stays below this value. Set to 0 to disable.
      */
     min_width?: number;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#options
+     * Segment-specific settings that customize its behavior and appearance beyond the shared
+     * segment properties.
      */
     options?: { [key: string]: any };
     /**
-     * Text to display while the segment is loading in streaming mode. See
-     * https://ohmyposh.dev/docs/experimental/streaming
+     * The text to display while the segment is loading in streaming mode.
      */
     placeholder?: string;
     /**
-     * DEPRECATED: Use 'options' instead. This field is maintained for backward compatibility
-     * with version 3 configs and will be removed in a future version. See
-     * https://ohmyposh.dev/docs/configuration/segment#options
+     * Deprecated: use options instead. This field only exists for backward compatibility with
+     * version 3 configs and will be removed in a future version.
      */
     properties?: { [key: string]: any };
     /**
-     * https://ohmyposh.dev/docs/configuration/segment#style
+     * How the segment is rendered relative to its neighbors: powerline, plain, diamond, or
+     * accordion.
      */
     style: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/templates
+     * A Go text/template string used to render the segment's text.
      */
     template?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * How multiple templates are combined: first_match keeps only the first non-empty result,
+     * join combines every non-empty result.
      */
     templates_logic?: TemplatesLogic;
     tips:             string[];
     /**
-     * https://ohmyposh.dev/docs/configuration/segment
+     * The segment type, which determines what information is displayed and which options are
+     * available.
      */
     type: SegmentType;
     [property: string]: any;
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/tooltips#tooltips-action
+ * Choose whether tooltips replace, extend, or prepend the current right prompt.
  */
 export type TooltipsAction = "replace" | "extend" | "prepend";
 
 /**
- * https://ohmyposh.dev/docs/configuration/transient
+ * Configure the prompt that replaces the primary prompt after a command is executed.
  *
- * https://ohmyposh.dev/docs/configuration/debug-prompt
+ * Configure the prompt shown while debugging a PowerShell script.
  *
- * https://ohmyposh.dev/docs/configuration/line-error
+ * Render a custom prompt when the current PowerShell input line contains an error.
+ *
+ * Render a custom prompt when the current PowerShell input line is valid.
  */
 export type TransientPromptSetting = {
     background?: string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the background color.
      */
     background_templates?: string[];
     filler?:               string;
     foreground?:           string;
     /**
-     * https://ohmyposh.dev/docs/configuration/colors#color-templates
+     * A list of templates evaluated in order; the first one that resolves to a non-empty string
+     * sets the foreground color.
      */
     foreground_templates?: string[];
     /**
-     * Add a newline before the prompt
+     * Add a newline before the prompt.
      */
     newline?: boolean;
     /**
      * The right-aligned template to render next to the transient prompt, supported in zsh and
-     * PowerShell only
+     * PowerShell only.
      */
     right_template?: string;
-    template?:       string;
+    /**
+     * The template used to render this prompt segment; supports the same Go template syntax and
+     * functions as regular segment templates.
+     */
+    template?: string;
     [property: string]: any;
 }
 
 /**
- * https://ohmyposh.dev/docs/configuration/general#general-settings
+ * Enable the upgrade notice or automatic updates for Oh My Posh.
  */
 export type EnableUpgradeNotice = {
+    /**
+     * Automatically download and install new releases in the background instead of only
+     * notifying that one is available.
+     */
     auto?:     boolean;
     interval?: string;
-    notice?:   boolean;
-    source?:   Source;
+    /**
+     * Show a one-time notice in the prompt when a new release is available.
+     */
+    notice?: boolean;
+    /**
+     * Where to check for and download new releases from. "cdn" uses the Oh My Posh CDN;
+     * "github" queries the GitHub releases API directly.
+     */
+    source?: Source;
     [property: string]: any;
 }
 
+/**
+ * Where to check for and download new releases from. "cdn" uses the Oh My Posh CDN;
+ * "github" queries the GitHub releases API directly.
+ */
 export type Source = "cdn" | "github";
 
 // Converts JSON strings to/from your types
