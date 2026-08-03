@@ -2035,6 +2035,12 @@
                     "description": "Display the local changes or not.",
                     "default": false
                   },
+                  "native_status": {
+                    "type": "boolean",
+                    "title": "Use the Native Status Engine",
+                    "description": "Fetch the status information using the built-in engine instead of the git CLI (experimental, falls back to git automatically).",
+                    "default": false
+                  },
                   "fetch_push_status": {
                     "type": "boolean",
                     "title": "Display Push Status",
@@ -5477,7 +5483,18 @@
       "default": false
     },
     "pwd": {
-      "type": "string",
+      "anyOf": [
+        {
+          "enum": [
+            "osc99",
+            "osc7",
+            "osc51"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ],
       "title": "Enable OSC99/7/51",
       "description": "Report the current working directory to the terminal using OSC 99, 7, or 51 sequences.",
       "default": ""
