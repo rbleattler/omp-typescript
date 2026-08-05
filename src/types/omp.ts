@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2026-08-04T00:20:32.042Z
+ * Generated on: 2026-08-05T00:20:34.466Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -42,6 +42,11 @@ export type Config = {
      * Template used to render the terminal's window title.
      */
     console_title_template?: string;
+    /**
+     * Set the terminal cursor's shape/blink state via a DECSCUSR sequence at the start of the
+     * prompt.
+     */
+    cursor_style?: CursorStyle;
     /**
      * A list of foreground and background colors to rotate through as segments render.
      */
@@ -331,6 +336,12 @@ export type SegmentType = "angular" | "argocd" | "aspire" | "aurelia" | "aws" | 
  * Whether this block renders as the main prompt or the right-aligned prompt (rprompt).
  */
 export type BlockType = "prompt" | "rprompt";
+
+/**
+ * Set the terminal cursor's shape/blink state via a DECSCUSR sequence at the start of the
+ * prompt.
+ */
+export type CursorStyle = "blinking_block" | "steady_block" | "blinking_underline" | "steady_underline" | "blinking_bar" | "steady_bar";
 
 export type CycleElement = any[] | boolean | number | number | null | CycleObject | string;
 
@@ -766,6 +777,7 @@ const typeMap: any = {
         { json: "async", js: "async", typ: u(undefined, true) },
         { json: "blocks", js: "blocks", typ: a(r("Block")) },
         { json: "console_title_template", js: "console_title_template", typ: u(undefined, "") },
+        { json: "cursor_style", js: "cursor_style", typ: u(undefined, r("CursorStyle")) },
         { json: "cycle", js: "cycle", typ: u(undefined, a(u(a("any"), true, 3.14, 0, null, r("CycleObject"), ""))) },
         { json: "debug_prompt", js: "debug_prompt", typ: u(undefined, r("ExtraPrompt")) },
         { json: "enable_cursor_positioning", js: "enable_cursor_positioning", typ: u(undefined, true) },
@@ -1027,6 +1039,14 @@ const typeMap: any = {
     "BlockType": [
         "prompt",
         "rprompt",
+    ],
+    "CursorStyle": [
+        "blinking_bar",
+        "blinking_block",
+        "blinking_underline",
+        "steady_bar",
+        "steady_block",
+        "steady_underline",
     ],
     "TheITerm2FeaturesToEnable": [
         "current_dir",
