@@ -5480,7 +5480,9 @@
         "blinking_underline",
         "steady_underline",
         "blinking_bar",
-        "steady_bar"
+        "steady_bar",
+        "default_steady",
+        "default_blinking"
       ]
     },
     "enable_cursor_positioning": {

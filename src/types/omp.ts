@@ -2,7 +2,7 @@
  * Oh My Posh TypeScript definitions
  *
  * Generated from schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/schema.json
- * Generated on: 2026-08-05T00:20:34.466Z
+ * Generated on: 2026-08-06T00:17:39.926Z
  *
  * @see https://ohmyposh.dev/docs/
  */
@@ -341,7 +341,7 @@ export type BlockType = "prompt" | "rprompt";
  * Set the terminal cursor's shape/blink state via a DECSCUSR sequence at the start of the
  * prompt.
  */
-export type CursorStyle = "blinking_block" | "steady_block" | "blinking_underline" | "steady_underline" | "blinking_bar" | "steady_bar";
+export type CursorStyle = "blinking_block" | "steady_block" | "blinking_underline" | "steady_underline" | "blinking_bar" | "steady_bar" | "default_steady" | "default_blinking";
 
 export type CycleElement = any[] | boolean | number | number | null | CycleObject | string;
 
@@ -1044,6 +1044,8 @@ const typeMap: any = {
         "blinking_bar",
         "blinking_block",
         "blinking_underline",
+        "default_blinking",
+        "default_steady",
         "steady_bar",
         "steady_block",
         "steady_underline",
